@@ -2,4 +2,4 @@
 
 ## API used
 
-* Reviews List : (API Doc Link)[https://github.com/Sathvik-Malgikar/NLPNinjas---G2-Hackathon.git]
+* Reviews List : [API Doc Link](https://data.g2.com/api/docs#reviews-list)
