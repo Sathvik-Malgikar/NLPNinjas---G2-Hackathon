@@ -74,6 +74,60 @@ def search_products(query, products_data):
     return sorted_products
 
 
+
+import json
+
+def append_to_json_file(file_path, key, value):
+    # Read the existing JSON file
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+
+    # Add the new key-value pair to the dictionary
+    data[key] = value
+
+    # Write the updated dictionary back to the JSON file
+    with open(file_path, 'w') as file:
+        json.dump(data, file, indent=4)
+
+
+# def append_to_json_file_efficient(file_path, key, value):
+    # # Open the JSON file in append mode
+    # with open(file_path, 'r+') as file:
+    #     # Move the file pointer to the end
+    #     file.seek(0, 2)
+        
+    #     pos = file.tell()
+    #     while pos > 0:
+    #         pos -= 1
+    #         file.seek(pos)
+    #         if file.read(1) == '}':
+    #             file.seek(pos)
+    #             break
+
+    #     # Remove one closing curly brace character if it's not the first record
+    #     if pos > 0:
+    #         file.truncate()
+
+    #     # Write the new record
+    #     if pos > 0:
+    #         file.write(',')
+    #     json.dump({key: value}, file, indent=4)
+    #       # Move the file pointer backwards until it finds an opening curly brace character
+    #     while True:
+    #         pos = file.tell()
+    #         if pos == 0:
+    #             break
+    #         file.seek(pos - 1)
+    #         char = file.read(1)
+    #         if char == '{':
+    #             file.seek(pos - 1)
+    #             file.truncate()
+    #             break
+    #         elif char.strip():  # If char is not whitespace, break the loop
+    #             break
+
+# Example usage:
+
 if __name__=="__main__":
     # Example usage
     # sentence = "Apple is looking at buying U.K. startup for $1 billion"
@@ -89,7 +143,7 @@ if __name__=="__main__":
     # print ( extract_keywords(sentence,8))
     
     
-    print( compute_similarity(["perfume"],["perform"]))
+    # print( compute_similarity(["perfume"],["perform"]))
     
     # # Example usage
     # query = "laptop with high performance"
@@ -103,5 +157,12 @@ if __name__=="__main__":
     # print("Search Results:")
     # for product_id, similarity_score in search_results:
     #     print(f"Product ID: {product_id}, Similarity Score: {similarity_score}")
+    
+    file_path = 'data.json'  # Replace with your JSON file path
+    product_id = 'new_product'
+    tags = 'new_value'
+
+    append_to_json_file(file_path, product_id, tags)
+
         
         
