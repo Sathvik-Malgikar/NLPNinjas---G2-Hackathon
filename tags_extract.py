@@ -95,7 +95,7 @@ def append_to_json_file(file_path, key, value):
         json.dump(data, file, indent=4)
 
 
-def extract_features(review_json):
+def extract_features(review_text):
     """
     Extracts feature sets from a single review in JSON format.
 
@@ -108,7 +108,7 @@ def extract_features(review_json):
     nlp = spacy.load("en_core_web_sm")  # Load a small English spaCy model
 
     # Get the review text from the "love.value" field (positive aspects)
-    text = review_json["attributes"]["comment_answers"]["love"]["value"]
+    # text = review_json["attributes"]["comment_answers"]["love"]["value"]
 
     # Pre-process the text (optional):
     # You can add pre-processing steps like tokenization, lowercasing, and removing stop words.
@@ -138,7 +138,7 @@ def extract_features(review_json):
     return features
 
 
-def extract_features_textblob(review_json):
+def extract_features_textblob(review_text):
     """
     Extracts feature sets from a single review in JSON format using TextBlob.
 
@@ -148,7 +148,7 @@ def extract_features_textblob(review_json):
     Returns:
         A dictionary containing extracted features and sentiment.
     """
-    review_text = review_json["attributes"]["comment_answers"]["love"]["value"]
+    # review_text = review_json["attributes"]["comment_answers"]["love"]["value"]
     blob = TextBlob(review_text)
 
     # Extract nouns (potential features)
