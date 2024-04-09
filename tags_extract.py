@@ -100,7 +100,7 @@ def extract_features(review_text):
     Extracts feature sets from a single review in JSON format.
 
     Args:
-        review_json: A dictionary containing the review data.
+        review_text: A string containing review.
 
     Returns:
         A dictionary containing extracted features and sentiment.
@@ -113,7 +113,7 @@ def extract_features(review_text):
     # Pre-process the text (optional):
     # You can add pre-processing steps like tokenization, lowercasing, and removing stop words.
 
-    doc = nlp(text)  # Parse the text with spaCy
+    doc = nlp(review_text)  # Parse the text with spaCy
 
     # Define aspects (features) to identify
     aspects = ["ease of use", "customer support",
@@ -143,7 +143,7 @@ def extract_features_textblob(review_text):
     Extracts feature sets from a single review in JSON format using TextBlob.
 
     Args:
-        review_json: A dictionary containing the review data.
+        review_text: A string containing review.
 
     Returns:
         A dictionary containing extracted features and sentiment.
