@@ -2,6 +2,11 @@
 import requests
 import json
 
+def read_json_from_file(file_path):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    return data
+
 def write_json_to_file(data, file_path):
     with open(file_path, 'w') as file:
         json.dump(data, file, indent=4)
@@ -20,7 +25,6 @@ def get_response_from_endpoint(url, headers=None):
 
 # Example usage:
 # has to be a GET request
-url = "https://data.g2.com/api/v1/survey-responses" # param id can be added optionally
 
 API_KEY = "1da6d9512ad00fc394bd04234bc7358dc9b85d96fa0c56281f710dc9abcef7e5"
 
@@ -29,10 +33,44 @@ custom_headers = {
     "Content Type": "application/vnd.api+json"
 }
 
+def process_one_batch(response):
+    
+    results = read_json_from_file("results.json")
 
-response = get_response_from_endpoint(url, headers=custom_headers)
-if response:
-    write_json_to_file(response,"response.json")
-else:
-    print("Failed to get response from the endpoint.")
+    data = response["data"]
+    n=results["num_reviews"]
+    sm= results["average_star_rating"]*results["num_reviews"]
+    
+    for review in data:
+        n+=1
+        sm+=review["attributes"]["star_rating"]
+        
+    results["average_star_rating"] =  (sm)/n
+    results["num_reviews"]=n
+        
+        
+    write_json_to_file(results,"results.json")
+
+import time
+
+url = "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=1&page%5Bsize%5D=10" # param id can be added optionally
+
+while True:
+    t1 = time.time()
+    response = get_response_from_endpoint(url, headers=custom_headers)
+    if response:
+        write_json_to_file(response,"response.json")
+        process_one_batch(response)
+        t2 = time.time()
+        print(f"Processed one batch in {t2-t1} seconds")
+        if "next" in response["links"]:
+            
+            url = response["links"]["next"]
+        else:
+            break
+        
+    else:
+        print("Failed to get response from the endpoint.")
+        
+print("Processing reviews completed, reached end of linked list")
 

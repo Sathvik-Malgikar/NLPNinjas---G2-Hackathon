@@ -1,30 +1,54 @@
 {
     "data": [
         {
-            "id": "18532",
+            "id": "7076443",
             "type": "survey_responses",
             "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/18532"
+                "self": "https://data.g2.com/api/v1/survey-responses/7076443"
             },
             "attributes": {
-                "default_sort": 1.2710259698084911,
+                "default_sort": 6.560769990713933,
                 "product_name": "G2 Marketing Solutions",
                 "is_public": true,
-                "slug": "g2-marketing-solutions-review-18532",
-                "percent_complete": 0.9545454545454546,
-                "star_rating": 4.5,
-                "title": "G2 helps market and customer validity",
+                "slug": "g2-marketing-solutions-review-7076443",
+                "percent_complete": 0.5254237288135594,
+                "star_rating": 5.0,
+                "title": "We \u2764\ufe0f G2",
                 "comment_answers": {
                     "love": {
                         "text": "What do you like best about the product?",
-                        "value": "G2 has helped our customers publicly validate us to prospects and has helped us build pipeline and be considered for opportunities where we likely would not have been found otherwise. Also it has aided as a great validation point for customers in meetings and demo's as to our market profile and position.  It has helped us need less reference calls and enabled our customers to have a more open and valid place to voice their opinion on us."
+                        "value": "The best thing is that G2 helps new, high-quality prospects find us at a great price. The next best thing is that they do it as part of a genuine partnership with us, supporting us every step of the way. I know that Mark and Henry have my back, and they consistently go above and beyond to help us reach our goals."
                     },
                     "hate": {
                         "text": "What do you dislike about the product?",
-                        "value": "Not a lot to dislike.  Be great as G2 becomes more recognised by a wider audience and gives the Gartners a run for their money. "
+                        "value": "Nothing much to dislike! It would be cool if they had the option to translate our profile into different languages."
+                    },
+                    "benefits": {
+                        "text": "What problems is the product solving and how is that benefiting you?",
+                        "value": "G2 provides a place for our future prospects to conduct unbiased research on our category. Leads that find us on G2 become customers at a higher rate than those from Google Ads or Gartner, at a fraction of the cost."
                     }
                 },
                 "secondary_answers": {
+                    "meets_requirements": {
+                        "text": "Meets Requirements",
+                        "value": 7.0
+                    },
+                    "ease_of_use": {
+                        "text": "Ease of Use",
+                        "value": 7.0
+                    },
+                    "quality_of_support": {
+                        "text": "Quality of Support",
+                        "value": 7.0
+                    },
+                    "ease_of_setup": {
+                        "text": "Ease of Setup",
+                        "value": 7.0
+                    },
+                    "ease_of_admin": {
+                        "text": "Ease of Admin",
+                        "value": 7.0
+                    },
                     "ease_of_doing_business_with": {
                         "text": "Has the product been a good partner in doing business?",
                         "value": 7.0
@@ -32,228 +56,317 @@
                 },
                 "verified_current_user": false,
                 "is_business_partner": false,
-                "review_source": "Organic review. This review was written entirely without invitation or incentive from G2, a seller, or an affiliate.",
-                "votes_up": 1,
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
+                "votes_up": 0,
                 "votes_down": 0,
-                "votes_total": 1,
-                "user_id": "6118c789-70c2-4b0d-87b4-e147de083f6f",
-                "user_name": "Ian Moyse \u2611",
-                "user_image_url": "https://media-exp1.licdn.com/dms/image/C4D03AQEB0w20dINt2w/profile-displayphoto-shrink_100_100/0/1618741141941?e=1643241600&v=beta&t=6LP_rZ1XaX0sMx35XSsF8SNY7sLIdrjeApwCtuePXNA",
+                "votes_total": 0,
+                "user_id": "932d847b-ee1f-4103-8b0f-07897f1206ed",
+                "user_name": "Ashley Duncan",
+                "user_image_url": "https://images.g2crowd.com/uploads/avatar/image/509780/thumb_square_880ef825dc0c465d12c1ccaecd53779a.jpg",
+                "country_name": "Spain",
+                "regions": [
+                    "EMEA",
+                    "Europe"
+                ],
+                "submitted_at": "2022-09-07T03:23:27.474-05:00",
+                "updated_at": "2022-09-07T03:23:27.632-05:00",
+                "moderated_at": "2022-09-07T09:05:00.366-05:00",
+                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
+                "reference_user_consent": "accepted",
+                "status": "approved"
+            },
+            "relationships": {
+                "product": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7076443/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7076443/product"
+                    }
+                },
+                "questions": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7076443/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7076443/questions"
+                    }
+                },
+                "answers": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7076443/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7076443/answers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "7076486",
+            "type": "survey_responses",
+            "links": {
+                "self": "https://data.g2.com/api/v1/survey-responses/7076486"
+            },
+            "attributes": {
+                "default_sort": 6.154700666908516,
+                "product_name": "G2 Marketing Solutions",
+                "is_public": false,
+                "slug": "g2-marketing-solutions-review-7076486",
+                "percent_complete": 0.34146341463414637,
+                "star_rating": 4.5,
+                "title": "A great tool for marketing and communication on an international scale",
+                "comment_answers": {
+                    "love": {
+                        "text": "What do you like best about the product?",
+                        "value": "The team was always willing to go above and beyond to find ideas and fixes to increase success."
+                    },
+                    "hate": {
+                        "text": "What do you dislike about the product?",
+                        "value": "The leads that we got directly through G2 form fills were not always high quality."
+                    },
+                    "benefits": {
+                        "text": "What problems is the product solving and how is that benefiting you?",
+                        "value": "Increased communication in developing regions."
+                    }
+                },
+                "secondary_answers": {},
+                "verified_current_user": false,
+                "is_business_partner": false,
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
+                "votes_up": 0,
+                "votes_down": 0,
+                "votes_total": 0,
+                "user_id": null,
+                "user_name": "Verified User in Computer Software",
+                "user_image_url": "icons/anonymous-avatar-blue.svg",
+                "country_name": null,
+                "regions": null,
+                "submitted_at": "2022-09-06T11:46:06.346-05:00",
+                "updated_at": "2022-09-06T11:46:06.533-05:00",
+                "moderated_at": "2022-09-06T21:05:15.055-05:00",
+                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
+                "reference_user_consent": "declined",
+                "status": "approved"
+            },
+            "relationships": {
+                "product": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7076486/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7076486/product"
+                    }
+                },
+                "questions": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7076486/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7076486/questions"
+                    }
+                },
+                "answers": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7076486/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7076486/answers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "7076762",
+            "type": "survey_responses",
+            "links": {
+                "self": "https://data.g2.com/api/v1/survey-responses/7076762"
+            },
+            "attributes": {
+                "default_sort": 6.178169944930043,
+                "product_name": "G2 Marketing Solutions",
+                "is_public": false,
+                "slug": "g2-marketing-solutions-review-7076762",
+                "percent_complete": 0.8292682926829268,
+                "star_rating": 4.0,
+                "title": "Great marketplace for showcasing your software solutions",
+                "comment_answers": {
+                    "love": {
+                        "text": "What do you like best about the product?",
+                        "value": "The EMEA Customer Success team have been very engaging and supportive in helping us utilise the platform"
+                    },
+                    "hate": {
+                        "text": "What do you dislike about the product?",
+                        "value": "It can be quite time-consuming and taxing to create and maintain profiles, especially if limited on resources"
+                    },
+                    "benefits": {
+                        "text": "What problems is the product solving and how is that benefiting you?",
+                        "value": "We can demonstrate the value we are bringing to our customers"
+                    }
+                },
+                "secondary_answers": {
+                    "meets_requirements": {
+                        "text": "Meets Requirements",
+                        "value": 6.0
+                    },
+                    "ease_of_use": {
+                        "text": "Ease of Use",
+                        "value": 5.0
+                    },
+                    "quality_of_support": {
+                        "text": "Quality of Support",
+                        "value": 6.0
+                    },
+                    "ease_of_setup": {
+                        "text": "Ease of Setup",
+                        "value": 4.0
+                    },
+                    "ease_of_admin": {
+                        "text": "Ease of Admin",
+                        "value": 5.0
+                    },
+                    "ease_of_doing_business_with": {
+                        "text": "Has the product been a good partner in doing business?",
+                        "value": 6.0
+                    }
+                },
+                "verified_current_user": false,
+                "is_business_partner": false,
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
+                "votes_up": 0,
+                "votes_down": 0,
+                "votes_total": 0,
+                "user_id": null,
+                "user_name": "Verified User in Information Technology and Services",
+                "user_image_url": "icons/anonymous-avatar-purple.svg",
+                "country_name": null,
+                "regions": null,
+                "submitted_at": "2022-09-06T13:45:16.154-05:00",
+                "updated_at": "2022-09-06T13:45:16.268-05:00",
+                "moderated_at": "2022-09-06T21:05:00.800-05:00",
+                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
+                "reference_user_consent": "accepted",
+                "status": "approved"
+            },
+            "relationships": {
+                "product": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7076762/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7076762/product"
+                    }
+                },
+                "questions": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7076762/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7076762/questions"
+                    }
+                },
+                "answers": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7076762/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7076762/answers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "7078535",
+            "type": "survey_responses",
+            "links": {
+                "self": "https://data.g2.com/api/v1/survey-responses/7078535"
+            },
+            "attributes": {
+                "default_sort": 6.359395945463935,
+                "product_name": "G2 Marketing Solutions",
+                "is_public": true,
+                "slug": "g2-marketing-solutions-review-7078535",
+                "percent_complete": 0.5172413793103449,
+                "star_rating": 4.5,
+                "title": "Great CS team, powerful tool!",
+                "comment_answers": {
+                    "love": {
+                        "text": "What do you like best about the product?",
+                        "value": "The buyer intent tools - these are particularly useful to our BD team, and even to marketing when profiling our ICP."
+                    },
+                    "hate": {
+                        "text": "What do you dislike about the product?",
+                        "value": "It's not a dislike but it would be super handy if we could connect buyer intent signals with Slack."
+                    },
+                    "benefits": {
+                        "text": "What problems is the product solving and how is that benefiting you?",
+                        "value": "We're able to receive real-time alerts on who's looking at our profile, who's comparing us to a competitor and more."
+                    }
+                },
+                "secondary_answers": {
+                    "meets_requirements": {
+                        "text": "Meets Requirements",
+                        "value": 6.0
+                    },
+                    "ease_of_use": {
+                        "text": "Ease of Use",
+                        "value": 6.0
+                    },
+                    "quality_of_support": {
+                        "text": "Quality of Support",
+                        "value": 7.0
+                    }
+                },
+                "verified_current_user": false,
+                "is_business_partner": false,
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
+                "votes_up": 0,
+                "votes_down": 0,
+                "votes_total": 0,
+                "user_id": "5232ab4f-f3ac-4f96-8134-2cd41da72e26",
+                "user_name": "Devon Dalton",
+                "user_image_url": "https://lh3.googleusercontent.com/a-/AOh14Gheg_noH9_8rwMQalez1Ht1R6S9mG2qx_xOs7_l=s96-c",
                 "country_name": "United Kingdom",
                 "regions": [
                     "EMEA",
                     "Europe"
                 ],
-                "submitted_at": "2013-12-06T08:51:22.236-06:00",
-                "updated_at": "2013-12-06T08:51:22.236-06:00",
-                "moderated_at": null,
+                "submitted_at": "2022-09-10T08:42:52.692-05:00",
+                "updated_at": "2022-09-10T08:42:52.852-05:00",
+                "moderated_at": "2022-09-10T21:05:00.662-05:00",
                 "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
+                "reference_user_consent": "accepted",
                 "status": "approved"
             },
             "relationships": {
                 "product": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/18532/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/18532/product"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078535/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078535/product"
                     }
                 },
                 "questions": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/18532/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/18532/questions"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078535/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078535/questions"
                     }
                 },
                 "answers": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/18532/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/18532/answers"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078535/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078535/answers"
                     }
                 }
             }
         },
         {
-            "id": "67896",
+            "id": "7078670",
             "type": "survey_responses",
             "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/67896"
+                "self": "https://data.g2.com/api/v1/survey-responses/7078670"
             },
             "attributes": {
-                "default_sort": 2.5346166321766437,
-                "product_name": "G2 Marketing Solutions",
-                "is_public": true,
-                "slug": "g2-marketing-solutions-review-67896",
-                "percent_complete": 0.9230769230769231,
-                "star_rating": 4.5,
-                "title": "Recommended for gaining visibility in B2B Marketing efforts ",
-                "comment_answers": {
-                    "love": {
-                        "text": "What do you like best about the product?",
-                        "value": "It showcases a wide range of vendors with unbiased and helpful reviews for evaluating solutions within your organization. This helps companies accelerate their marketing efforts and sales cycles when shared effectively. \r\n\r\nThe smart grid is also a really great way to show how your company is perceived in the market place.\r\n\r\nQuarterly reports are very detailed and are helpful overviews for companies trying to evaluate vendors. "
-                    },
-                    "hate": {
-                        "text": "What do you dislike about the product?",
-                        "value": "There aren't enough people open to reviewing products without an incentive. I still think that reviewers are honest and unbiased, but the volume is still much lower than you'd expect. \r\n\r\nIt is costly, but we saw an ROI within weeks of launching our paid subscription with closing a relatively large deal through a lead that came in via G2Crowd. "
-                    },
-                    "recommendations": {
-                        "text": "Recommendations to others considering the product:",
-                        "value": "Learn more about best practices and ways to leverage their platform. It helped us gain a lot of visibility in the market and respect amongst our customers. "
-                    }
-                },
-                "secondary_answers": {
-                    "ease_of_doing_business_with": {
-                        "text": "Has the product been a good partner in doing business?",
-                        "value": 6.0
-                    }
-                },
-                "verified_current_user": false,
-                "is_business_partner": true,
-                "review_source": "Invitation from G2. This reviewer was offered a nominal gift card as thank you for completing this review.",
-                "votes_up": 0,
-                "votes_down": 0,
-                "votes_total": 0,
-                "user_id": "ecf99a0c-5438-463f-afc1-24f1511b2a62",
-                "user_name": "Dakota McKenzie",
-                "user_image_url": "https://images.g2crowd.com/uploads/avatar/image/587484/thumb_square_9507df9ec1b62fd92e567637b73d20dc.jpeg",
-                "country_name": "United States",
-                "regions": [
-                    "Americas",
-                    "North America"
-                ],
-                "submitted_at": "2015-10-26T10:55:33.637-05:00",
-                "updated_at": "2015-10-26T10:55:34.284-05:00",
-                "moderated_at": null,
-                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
-                "status": "approved"
-            },
-            "relationships": {
-                "product": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/67896/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/67896/product"
-                    }
-                },
-                "questions": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/67896/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/67896/questions"
-                    }
-                },
-                "answers": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/67896/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/67896/answers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "177131",
-            "type": "survey_responses",
-            "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/177131"
-            },
-            "attributes": {
-                "default_sort": 2.8232746888863036,
-                "product_name": "G2 Marketing Solutions",
-                "is_public": true,
-                "slug": "g2-marketing-solutions-review-177131",
-                "percent_complete": 0.42857142857142855,
-                "star_rating": 4.5,
-                "title": "Credibility",
-                "comment_answers": {
-                    "love": {
-                        "text": "What do you like best about the product?",
-                        "value": "Great way to build our brand in a new space, by leveraging user success. Also, Alex Pike did a great job of helping us understand the value of the platform when we first started."
-                    },
-                    "hate": {
-                        "text": "What do you dislike about the product?",
-                        "value": "So far so good, we are just starting to use additional features like the LinkedIn integration so can't evaluate that yet"
-                    },
-                    "benefits": {
-                        "text": "What problems is the product solving and how is that benefiting you?",
-                        "value": "Building our brand and business through more exposure and inbound leads."
-                    }
-                },
-                "secondary_answers": {
-                    "ease_of_doing_business_with": {
-                        "text": "Has the product been a good partner in doing business?",
-                        "value": 7.0
-                    }
-                },
-                "verified_current_user": false,
-                "is_business_partner": true,
-                "review_source": "Organic review. This review was written entirely without invitation or incentive from G2, a seller, or an affiliate.",
-                "votes_up": 0,
-                "votes_down": 0,
-                "votes_total": 0,
-                "user_id": "18c7b72b-467b-4119-9be9-0e0486ee35e4",
-                "user_name": "Paul McGhee",
-                "user_image_url": "https://images.g2crowd.com/uploads/avatar/image/321856/thumb_square_3afbacd056aa0bf9ccd0a74f93b3f247.jpeg",
-                "country_name": "United States",
-                "regions": [
-                    "Americas",
-                    "North America"
-                ],
-                "submitted_at": "2016-10-06T14:50:59.131-05:00",
-                "updated_at": "2016-10-06T14:50:59.164-05:00",
-                "moderated_at": "2016-10-08T14:32:11.744-05:00",
-                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
-                "status": "approved"
-            },
-            "relationships": {
-                "product": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/177131/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/177131/product"
-                    }
-                },
-                "questions": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/177131/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/177131/questions"
-                    }
-                },
-                "answers": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/177131/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/177131/answers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "179859",
-            "type": "survey_responses",
-            "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/179859"
-            },
-            "attributes": {
-                "default_sort": 3.098995914434322,
+                "default_sort": 6.277507177499272,
                 "product_name": "G2 Marketing Solutions",
                 "is_public": false,
-                "slug": "g2-marketing-solutions-review-179859",
-                "percent_complete": 1.0,
+                "slug": "g2-marketing-solutions-review-7078670",
+                "percent_complete": 0.9661016949152542,
                 "star_rating": 5.0,
-                "title": "Advocately have been instrumental to our review strategy",
+                "title": "Cannot believe I ever ran ABM without it",
                 "comment_answers": {
                     "love": {
                         "text": "What do you like best about the product?",
-                        "value": "The end to end service and process has been the highlight to my experience. Advocately has ensured our success by assisting us with implementing our review campaigns. They've consistently optimised our process to achieve our goals."
+                        "value": "It has became as strong of a channel as our own website. Especially on the higher echelon prospects side (b2b, abm)."
                     },
                     "hate": {
                         "text": "What do you dislike about the product?",
-                        "value": "There is little that I dislike. Understanding exactly what each of the features means and the flow between them has been my only slight hindrance. "
-                    },
-                    "recommendations": {
-                        "text": "Recommendations to others considering the product:",
-                        "value": "If you're a Saas company focused on growth, you need Advocately in your sales and marketing stack."
+                        "value": "Nothing to report. All has been working smoothly."
                     },
                     "benefits": {
                         "text": "What problems is the product solving and how is that benefiting you?",
-                        "value": "We've been able to effectively scale our review processes by encouraging our promoters to share their experience on various review websites. Previously this was a very manual exercise to connect and remind our promoters that we'd love their support. Now with Adovately we can politely reach out and explain how they could really help with our growth success by leaving a review of their experience."
+                        "value": "Intent signals, competitor landscape, ABM engagement, demand generation."
                     }
                 },
                 "secondary_answers": {
@@ -263,7 +376,7 @@
                     },
                     "ease_of_use": {
                         "text": "Ease of Use",
-                        "value": 6.0
+                        "value": 7.0
                     },
                     "quality_of_support": {
                         "text": "Quality of Support",
@@ -271,7 +384,7 @@
                     },
                     "ease_of_setup": {
                         "text": "Ease of Setup",
-                        "value": 5.0
+                        "value": 7.0
                     },
                     "ease_of_admin": {
                         "text": "Ease of Admin",
@@ -283,170 +396,70 @@
                     }
                 },
                 "verified_current_user": true,
-                "is_business_partner": true,
-                "review_source": "Organic review. This review was written entirely without invitation or incentive from G2, a seller, or an affiliate.",
+                "is_business_partner": false,
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
                 "votes_up": 0,
                 "votes_down": 0,
                 "votes_total": 0,
                 "user_id": null,
-                "user_name": "Verified User in Information Services",
+                "user_name": "Verified User in Computer Software",
                 "user_image_url": "icons/anonymous-avatar-rorange.svg",
                 "country_name": null,
                 "regions": null,
-                "submitted_at": "2016-10-18T05:13:52.950-05:00",
-                "updated_at": "2016-10-18T05:13:52.977-05:00",
-                "moderated_at": "2016-10-18T09:08:20.958-05:00",
+                "submitted_at": "2022-09-07T04:25:16.524-05:00",
+                "updated_at": "2022-09-07T04:25:16.565-05:00",
+                "moderated_at": "2022-09-07T09:05:00.514-05:00",
                 "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
+                "reference_user_consent": "accepted",
                 "status": "approved"
             },
             "relationships": {
                 "product": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/179859/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/179859/product"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078670/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078670/product"
                     }
                 },
                 "questions": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/179859/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/179859/questions"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078670/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078670/questions"
                     }
                 },
                 "answers": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/179859/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/179859/answers"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078670/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078670/answers"
                     }
                 }
             }
         },
         {
-            "id": "179888",
+            "id": "7078880",
             "type": "survey_responses",
             "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/179888"
+                "self": "https://data.g2.com/api/v1/survey-responses/7078880"
             },
             "attributes": {
-                "default_sort": 3.247624428366846,
+                "default_sort": 6.345964344084942,
                 "product_name": "G2 Marketing Solutions",
                 "is_public": true,
-                "slug": "g2-marketing-solutions-review-179888",
-                "percent_complete": 1.0,
-                "star_rating": 5.0,
-                "title": "Game Changer",
+                "slug": "g2-marketing-solutions-review-7078880",
+                "percent_complete": 0.9607843137254902,
+                "star_rating": 4.5,
+                "title": "Easy to use",
                 "comment_answers": {
                     "love": {
                         "text": "What do you like best about the product?",
-                        "value": "Advocately facilitates a continuous flow of great reviews of your product or service on the top review sites across the web. We have had excellent service and it is clear that Advocately is committed to getting the best results for their clients. They have a vision for this space that I have not seen before, and it is a welcome innovation. "
+                        "value": "Excellent visibility for our customers and potential customers."
                     },
                     "hate": {
                         "text": "What do you dislike about the product?",
-                        "value": "This is not a true dislike, but the success of Advocately for us depends on at least one other integrated service, which we fortunately already had in place."
-                    },
-                    "recommendations": {
-                        "text": "Recommendations to others considering the product:",
-                        "value": "The success of Advocately ultimately falls back on quality of your own product or service. Advocately facilitates amplifying your advocates, but you do need to deliver a quality product or service that deserves having advocates."
+                        "value": "It can be expensive for smaller companies"
                     },
                     "benefits": {
                         "text": "What problems is the product solving and how is that benefiting you?",
-                        "value": "We are finally recognizing the value of having advocates for our product who thankfully already existed, but were not given the opportunity to act as advocates. Having this process be automated saves a significant amount of time vs. any alternative. It is also much more cost efficient than running separate campaigns with each individual review site."
-                    }
-                },
-                "secondary_answers": {
-                    "meets_requirements": {
-                        "text": "Meets Requirements",
-                        "value": 6.0
-                    },
-                    "ease_of_use": {
-                        "text": "Ease of Use",
-                        "value": 5.0
-                    },
-                    "quality_of_support": {
-                        "text": "Quality of Support",
-                        "value": 7.0
-                    },
-                    "ease_of_setup": {
-                        "text": "Ease of Setup",
-                        "value": 5.0
-                    },
-                    "ease_of_admin": {
-                        "text": "Ease of Admin",
-                        "value": 6.0
-                    },
-                    "ease_of_doing_business_with": {
-                        "text": "Has the product been a good partner in doing business?",
-                        "value": 7.0
-                    }
-                },
-                "verified_current_user": true,
-                "is_business_partner": true,
-                "review_source": "Organic review. This review was written entirely without invitation or incentive from G2, a seller, or an affiliate.",
-                "votes_up": 0,
-                "votes_down": 0,
-                "votes_total": 0,
-                "user_id": "dfeaf03d-0470-4133-8277-e278765e0b5d",
-                "user_name": "Patrick Edmonds",
-                "user_image_url": "https://media-exp1.licdn.com/dms/image/C5603AQFiT4x6FlvKRg/profile-displayphoto-shrink_100_100/0/1584986400822?e=1665619200&v=beta&t=kvZYte8IWiv7pmQtw0PFksBLFarPOTRy5SrMQLUnjOU",
-                "country_name": "Canada",
-                "regions": [
-                    "Americas",
-                    "North America"
-                ],
-                "submitted_at": "2016-10-18T09:32:37.908-05:00",
-                "updated_at": "2016-10-18T09:32:37.933-05:00",
-                "moderated_at": "2016-10-18T09:51:51.791-05:00",
-                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
-                "status": "approved"
-            },
-            "relationships": {
-                "product": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/179888/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/179888/product"
-                    }
-                },
-                "questions": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/179888/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/179888/questions"
-                    }
-                },
-                "answers": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/179888/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/179888/answers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "182325",
-            "type": "survey_responses",
-            "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/182325"
-            },
-            "attributes": {
-                "default_sort": 3.217886689436927,
-                "product_name": "G2 Marketing Solutions",
-                "is_public": true,
-                "slug": "g2-marketing-solutions-review-182325",
-                "percent_complete": 0.9117647058823529,
-                "star_rating": 5.0,
-                "title": "Effortless review fetching",
-                "comment_answers": {
-                    "love": {
-                        "text": "What do you like best about the product?",
-                        "value": "It works exactly as intended. Promoters get pro-active outreach for review requests in a way that is not over-the-top. The team at advocately have made themselves available at every step in the onboarding journey as well. Great service"
-                    },
-                    "hate": {
-                        "text": "What do you dislike about the product?",
-                        "value": "Not much at this point, we just need to figure out how best to integrate it into our other systems, particularly for our Customer Success team to follow up on the passive and detractor comments. No doubt I'll get the help I'm looking for."
-                    },
-                    "benefits": {
-                        "text": "What problems is the product solving and how is that benefiting you?",
-                        "value": "We went looking for a way to garner more reviews as they were severely lacking. We had cobbled together a fairly clunky and manual process and were going to roll it out. However, as soon as we found out about advocately, it all made sense. It's a well thought through workflow and it's very unobtrusive for our clients. "
+                        "value": "Competitor comparison and customer reviews"
                     }
                 },
                 "secondary_answers": {
@@ -468,375 +481,385 @@
                     },
                     "ease_of_admin": {
                         "text": "Ease of Admin",
-                        "value": 6.0
-                    },
-                    "ease_of_doing_business_with": {
-                        "text": "Has the product been a good partner in doing business?",
-                        "value": 7.0
-                    }
-                },
-                "verified_current_user": true,
-                "is_business_partner": true,
-                "review_source": "Organic review. This review was written entirely without invitation or incentive from G2, a seller, or an affiliate.",
-                "votes_up": 0,
-                "votes_down": 0,
-                "votes_total": 0,
-                "user_id": "cc915e3a-9870-4c89-b6c5-62a07371d0ba",
-                "user_name": "Tom Maxwell",
-                "user_image_url": "https://media.licdn.com/mpr/mprx/0_dtjoYm_KFtSLKo-3InUzYDz-51Rwt2P3IPdvYDX3s9fsSekT5ND6rSKfwgUvAItDHl0qlE9LmHpK",
-                "country_name": "Canada",
-                "regions": [
-                    "Americas",
-                    "North America"
-                ],
-                "submitted_at": "2016-10-20T14:04:27.179-05:00",
-                "updated_at": "2016-10-20T14:04:27.212-05:00",
-                "moderated_at": "2016-10-22T11:54:20.497-05:00",
-                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
-                "status": "approved"
-            },
-            "relationships": {
-                "product": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/182325/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/182325/product"
-                    }
-                },
-                "questions": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/182325/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/182325/questions"
-                    }
-                },
-                "answers": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/182325/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/182325/answers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "182489",
-            "type": "survey_responses",
-            "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/182489"
-            },
-            "attributes": {
-                "default_sort": 2.9201173307231953,
-                "product_name": "G2 Marketing Solutions",
-                "is_public": true,
-                "slug": "g2-marketing-solutions-review-182489",
-                "percent_complete": 0.6486486486486487,
-                "star_rating": 5.0,
-                "title": "Great idea and good time saver",
-                "comment_answers": {
-                    "love": {
-                        "text": "What do you like best about the product?",
-                        "value": "We were previously using engagement as a criteria for requesting a review (which we were doing manually). The blend of using NPS along with the automation Advocately provides means we are getting a higher volume of higher quality reviews for less work."
-                    },
-                    "hate": {
-                        "text": "What do you dislike about the product?",
-                        "value": "Very little. The product is currently quite feature-light but the future is bright and loads of potential."
-                    },
-                    "benefits": {
-                        "text": "What problems is the product solving and how is that benefiting you?",
-                        "value": "Building an advocacy programme is hard. Advocately has had an immediate impact at a reasonable price point."
-                    }
-                },
-                "secondary_answers": {
-                    "meets_requirements": {
-                        "text": "Meets Requirements",
-                        "value": 7.0
-                    },
-                    "ease_of_use": {
-                        "text": "Ease of Use",
-                        "value": 7.0
-                    },
-                    "quality_of_support": {
-                        "text": "Quality of Support",
-                        "value": 7.0
-                    },
-                    "ease_of_setup": {
-                        "text": "Ease of Setup",
-                        "value": 7.0
-                    },
-                    "ease_of_admin": {
-                        "text": "Ease of Admin",
                         "value": 7.0
                     },
                     "ease_of_doing_business_with": {
                         "text": "Has the product been a good partner in doing business?",
-                        "value": 7.0
-                    }
-                },
-                "verified_current_user": false,
-                "is_business_partner": true,
-                "review_source": "Organic review. This review was written entirely without invitation or incentive from G2, a seller, or an affiliate.",
-                "votes_up": 0,
-                "votes_down": 0,
-                "votes_total": 0,
-                "user_id": "73bacb5b-f039-4a37-bea9-5e1fc9c0f90c",
-                "user_name": "Ewan McCowen",
-                "user_image_url": "https://lh3.googleusercontent.com/a-/AOh14GhZJJByfx08RN9E7a0QD-nBZ0f3ISX65CRtBqU-8A=s96-c",
-                "country_name": "United States",
-                "regions": [
-                    "Americas",
-                    "North America"
-                ],
-                "submitted_at": "2016-11-14T05:42:06.127-06:00",
-                "updated_at": "2016-11-14T05:42:06.169-06:00",
-                "moderated_at": "2016-11-15T17:20:49.744-06:00",
-                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
-                "status": "approved"
-            },
-            "relationships": {
-                "product": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/182489/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/182489/product"
-                    }
-                },
-                "questions": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/182489/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/182489/questions"
-                    }
-                },
-                "answers": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/182489/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/182489/answers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "183103",
-            "type": "survey_responses",
-            "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/183103"
-            },
-            "attributes": {
-                "default_sort": 3.2564523722062892,
-                "product_name": "G2 Marketing Solutions",
-                "is_public": true,
-                "slug": "g2-marketing-solutions-review-183103",
-                "percent_complete": 0.9090909090909091,
-                "star_rating": 5.0,
-                "title": "Automate your reviews, saves you tons of time, highly recommend!",
-                "comment_answers": {
-                    "love": {
-                        "text": "What do you like best about the product?",
-                        "value": "Getting reviews is an integral part of any (online) business these days but the process can be very time consuming and hard. With Advocately the entire process is automated which is a huge work load lifted. After the initial setup you just let the system do the work for you, the support is great and the product works like a charm. I can highly recommend Advocately to anyone who relies on reviews! "
-                    },
-                    "hate": {
-                        "text": "What do you dislike about the product?",
-                        "value": "Hard to come up with anything I dislike, if pressed I would say that it would be good to have a simple explainer video of 1 minute which would quickly show the value and functionality - in the beginning it is a bit hard to understand exactly what Advocately does :-) "
-                    },
-                    "recommendations": {
-                        "text": "Recommendations to others considering the product:",
-                        "value": "Make sure you know where you would like the reviews to be gathered and set up the platform before you engage Advocately. "
-                    },
-                    "benefits": {
-                        "text": "What problems is the product solving and how is that benefiting you?",
-                        "value": "Reviews are not just good for your online reputation but offer other benefits, like showing star ratings in your AdWords ads, as well. Getting these reviews is a part of any good digital marketing strategy but usually is very hard to get rolling, Advocately takes care of this process for you and saves you tons of time and effort. "
-                    }
-                },
-                "secondary_answers": {
-                    "meets_requirements": {
-                        "text": "Meets Requirements",
                         "value": 6.0
-                    },
-                    "ease_of_use": {
-                        "text": "Ease of Use",
-                        "value": 5.0
-                    },
-                    "quality_of_support": {
-                        "text": "Quality of Support",
-                        "value": 7.0
                     }
                 },
                 "verified_current_user": true,
                 "is_business_partner": true,
-                "review_source": "Organic review. This review was written entirely without invitation or incentive from G2, a seller, or an affiliate.",
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
                 "votes_up": 0,
                 "votes_down": 0,
                 "votes_total": 0,
-                "user_id": "16343408-1383-4024-81c4-d14b78c8e397",
-                "user_name": "Andre Weyher",
-                "user_image_url": "https://media.licdn.com/mpr/mprx/0_V24ZqXRWWFW36moyNEIFqQDXI8auoDUy4m2FqQEzq5VgzWupnoHNs6ORLamtWosKRfVQR3ZtPLkv",
-                "country_name": "Australia",
+                "user_id": "72cc7f7a-8383-4d1c-b7a4-af5bd90ba4e3",
+                "user_name": "Taniel",
+                "user_image_url": "https://images.g2crowd.com/uploads/avatar/image/432568/thumb_square_d8ba78d9556580fcf15b983c416a4143.png",
+                "country_name": "South Africa",
                 "regions": [
-                    "Asia Pacific",
-                    "ANZ"
+                    "EMEA",
+                    "Africa",
+                    "Middle East & Africa"
                 ],
-                "submitted_at": "2016-10-23T18:31:02.856-05:00",
-                "updated_at": "2016-10-23T18:31:02.896-05:00",
-                "moderated_at": "2016-10-26T17:48:32.857-05:00",
+                "submitted_at": "2022-09-07T06:13:49.923-05:00",
+                "updated_at": "2022-09-07T06:13:49.971-05:00",
+                "moderated_at": "2022-09-13T10:17:32.547-05:00",
                 "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
+                "reference_user_consent": "accepted",
                 "status": "approved"
             },
             "relationships": {
                 "product": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/183103/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/183103/product"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078880/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078880/product"
                     }
                 },
                 "questions": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/183103/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/183103/questions"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078880/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078880/questions"
                     }
                 },
                 "answers": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/183103/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/183103/answers"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078880/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078880/answers"
                     }
                 }
             }
         },
         {
-            "id": "183130",
+            "id": "7078899",
             "type": "survey_responses",
             "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/183130"
+                "self": "https://data.g2.com/api/v1/survey-responses/7078899"
             },
             "attributes": {
-                "default_sort": 2.940035520540767,
-                "product_name": "G2 Marketing Solutions",
-                "is_public": true,
-                "slug": "g2-marketing-solutions-review-183130",
-                "percent_complete": 0.3076923076923077,
-                "star_rating": 5.0,
-                "title": "I am an advocate for Advocately!",
-                "comment_answers": {
-                    "love": {
-                        "text": "What do you like best about the product?",
-                        "value": "We are getting our promoters to write reviews online and refer their friends at an extremely high rate!  We can link the results from this back to revenue."
-                    },
-                    "hate": {
-                        "text": "What do you dislike about the product?",
-                        "value": "Nothing right now.  I'm excited to see how the Advocately platform develops."
-                    },
-                    "benefits": {
-                        "text": "What problems is the product solving and how is that benefiting you?",
-                        "value": "Our customers leave us awesome reviews and refer their friends."
-                    }
-                },
-                "secondary_answers": {},
-                "verified_current_user": true,
-                "is_business_partner": true,
-                "review_source": "Organic review. This review was written entirely without invitation or incentive from G2, a seller, or an affiliate.",
-                "votes_up": 0,
-                "votes_down": 0,
-                "votes_total": 0,
-                "user_id": "e78fe34b-f4f7-4e8c-b216-ddd2fce340b7",
-                "user_name": "Sareena Baldhiraj",
-                "user_image_url": "https://media.licdn.com/mpr/mprx/0_5fq3To2etJ4JWBKV5D1-Tea5KRfVwl3VIwhYTeDn7ORINz9sddXDfHMZYv7XHnh9k290mfxZJ5MT",
-                "country_name": "Singapore",
-                "regions": [
-                    "Asia",
-                    "Asia Pacific",
-                    "Southeast Asia"
-                ],
-                "submitted_at": "2016-11-03T01:39:43.057-05:00",
-                "updated_at": "2016-11-03T01:39:43.094-05:00",
-                "moderated_at": "2016-11-05T18:17:24.349-05:00",
-                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
-                "status": "approved"
-            },
-            "relationships": {
-                "product": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/183130/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/183130/product"
-                    }
-                },
-                "questions": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/183130/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/183130/questions"
-                    }
-                },
-                "answers": {
-                    "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/183130/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/183130/answers"
-                    }
-                }
-            }
-        },
-        {
-            "id": "184048",
-            "type": "survey_responses",
-            "links": {
-                "self": "https://data.g2.com/api/v1/survey-responses/184048"
-            },
-            "attributes": {
-                "default_sort": 2.728710149193116,
+                "default_sort": 6.4209744591302735,
                 "product_name": "G2 Marketing Solutions",
                 "is_public": false,
-                "slug": "g2-marketing-solutions-review-184048",
-                "percent_complete": 0.4583333333333333,
-                "star_rating": 4.5,
-                "title": "NPS and more!",
+                "slug": "g2-marketing-solutions-review-7078899",
+                "percent_complete": 0.2777777777777778,
+                "star_rating": 5.0,
+                "title": "Brilliant experience",
                 "comment_answers": {
                     "love": {
                         "text": "What do you like best about the product?",
-                        "value": "Advocately helped us reach out to our top promoters and helped build out our reviews across our different platforms."
+                        "value": "We are fascinated by the Buyer Intent feature as it helps a lot our Marketing and Sales teams. It gives a lot of insights that help market to the right prospect at the right time and close deals faster."
                     },
                     "hate": {
                         "text": "What do you dislike about the product?",
-                        "value": "Advocately is still a very early product - not a ton on reporting yet, but we're excited to see where they're headed"
+                        "value": "Nothing, to be honest. We are completely satisfied with it."
                     },
                     "benefits": {
                         "text": "What problems is the product solving and how is that benefiting you?",
-                        "value": "We wanted to find better ways to reach out to our NPS promoters and to get reviews on app marketplaces like Shopify and Xero."
+                        "value": "As was said above, it gives a lot of insights that help market to the right prospect at the right time and close deals faster. Would recommend it to each business."
                     }
                 },
                 "secondary_answers": {},
-                "verified_current_user": false,
-                "is_business_partner": true,
-                "review_source": "Organic review. This review was written entirely without invitation or incentive from G2, a seller, or an affiliate.",
+                "verified_current_user": true,
+                "is_business_partner": false,
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
                 "votes_up": 0,
                 "votes_down": 0,
                 "votes_total": 0,
                 "user_id": null,
-                "user_name": "Verified User in Education Management",
-                "user_image_url": "icons/anonymous-avatar-teal.svg",
+                "user_name": "Verified User in Internet",
+                "user_image_url": "icons/anonymous-avatar-purple.svg",
                 "country_name": null,
                 "regions": null,
-                "submitted_at": "2016-10-27T04:12:06.756-05:00",
-                "updated_at": "2016-10-27T04:12:06.793-05:00",
-                "moderated_at": "2016-10-29T18:17:08.599-05:00",
+                "submitted_at": "2022-09-07T06:22:41.393-05:00",
+                "updated_at": "2022-09-07T06:22:41.550-05:00",
+                "moderated_at": "2022-09-07T09:05:00.403-05:00",
                 "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
-                "reference_user_consent": "unanswered",
+                "reference_user_consent": "declined",
                 "status": "approved"
             },
             "relationships": {
                 "product": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/184048/relationships/product",
-                        "related": "https://data.g2.com/api/v1/survey-responses/184048/product"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078899/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078899/product"
                     }
                 },
                 "questions": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/184048/relationships/questions",
-                        "related": "https://data.g2.com/api/v1/survey-responses/184048/questions"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078899/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078899/questions"
                     }
                 },
                 "answers": {
                     "links": {
-                        "self": "https://data.g2.com/api/v1/survey-responses/184048/relationships/answers",
-                        "related": "https://data.g2.com/api/v1/survey-responses/184048/answers"
+                        "self": "https://data.g2.com/api/v1/survey-responses/7078899/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7078899/answers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "7079133",
+            "type": "survey_responses",
+            "links": {
+                "self": "https://data.g2.com/api/v1/survey-responses/7079133"
+            },
+            "attributes": {
+                "default_sort": 6.416077149656279,
+                "product_name": "G2 Marketing Solutions",
+                "is_public": true,
+                "slug": "g2-marketing-solutions-review-7079133",
+                "percent_complete": 0.5531914893617021,
+                "star_rating": 4.5,
+                "title": "Helpful team, easy platform to navigate",
+                "comment_answers": {
+                    "love": {
+                        "text": "What do you like best about the product?",
+                        "value": "In general, I find the platform rather easy to navigate, and the team responds quickly when I have doubts."
+                    },
+                    "hate": {
+                        "text": "What do you dislike about the product?",
+                        "value": "Nothing I dislike. I should dedicate more time to take full advantage."
+                    },
+                    "benefits": {
+                        "text": "What problems is the product solving and how is that benefiting you?",
+                        "value": "I'd say it is improving our online presence and reputation"
+                    }
+                },
+                "secondary_answers": {
+                    "meets_requirements": {
+                        "text": "Meets Requirements",
+                        "value": 6.0
+                    },
+                    "ease_of_use": {
+                        "text": "Ease of Use",
+                        "value": 6.0
+                    },
+                    "quality_of_support": {
+                        "text": "Quality of Support",
+                        "value": 7.0
+                    },
+                    "ease_of_setup": {
+                        "text": "Ease of Setup",
+                        "value": 6.0
+                    },
+                    "ease_of_admin": {
+                        "text": "Ease of Admin",
+                        "value": 6.0
+                    },
+                    "ease_of_doing_business_with": {
+                        "text": "Has the product been a good partner in doing business?",
+                        "value": 6.0
+                    }
+                },
+                "verified_current_user": true,
+                "is_business_partner": false,
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
+                "votes_up": 0,
+                "votes_down": 0,
+                "votes_total": 0,
+                "user_id": "1bb41c32-db2c-4a37-9190-46ee3915bac2",
+                "user_name": "Pablo Seijo",
+                "user_image_url": "https://lh3.googleusercontent.com/a-/AOh14GhOfhtYbwN0nznbjL8RoJmSfHmeLP9Na-dNlm3l=s96-c",
+                "country_name": "Spain",
+                "regions": [
+                    "EMEA",
+                    "Europe"
+                ],
+                "submitted_at": "2022-09-07T07:52:42.888-05:00",
+                "updated_at": "2022-09-07T07:52:42.957-05:00",
+                "moderated_at": "2022-09-07T09:05:00.513-05:00",
+                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
+                "reference_user_consent": "accepted",
+                "status": "approved"
+            },
+            "relationships": {
+                "product": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7079133/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7079133/product"
+                    }
+                },
+                "questions": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7079133/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7079133/questions"
+                    }
+                },
+                "answers": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7079133/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7079133/answers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "7079149",
+            "type": "survey_responses",
+            "links": {
+                "self": "https://data.g2.com/api/v1/survey-responses/7079149"
+            },
+            "attributes": {
+                "default_sort": 6.7461236750621545,
+                "product_name": "G2 Marketing Solutions",
+                "is_public": true,
+                "slug": "g2-marketing-solutions-review-7079149",
+                "percent_complete": 0.9,
+                "star_rating": 4.5,
+                "title": "Great onboarding experience with G2",
+                "comment_answers": {
+                    "love": {
+                        "text": "What do you like best about the product?",
+                        "value": "We've only been using the platform actively for some months. But so far it's actually the personal help that we have received during the onboarding which has been the best part of the experience. I should also add that the Product portal is very valuable and contains a lot of useful information and material for marketing."
+                    },
+                    "hate": {
+                        "text": "What do you dislike about the product?",
+                        "value": "I would have loved to be able to customize the page that people get to when they start to write a review, being able to describe the process a bit further so the person knows what steps they need to go through in order to submit a review."
+                    },
+                    "benefits": {
+                        "text": "What problems is the product solving and how is that benefiting you?",
+                        "value": "I think this builds brand credibility and also helps us with brand awareness. It's a great place for potential buyers to find information about the software that they would never find on the vendor's own website!"
+                    }
+                },
+                "secondary_answers": {
+                    "meets_requirements": {
+                        "text": "Meets Requirements",
+                        "value": 7.0
+                    },
+                    "ease_of_use": {
+                        "text": "Ease of Use",
+                        "value": 7.0
+                    },
+                    "quality_of_support": {
+                        "text": "Quality of Support",
+                        "value": 7.0
+                    },
+                    "ease_of_setup": {
+                        "text": "Ease of Setup",
+                        "value": 6.0
+                    },
+                    "ease_of_admin": {
+                        "text": "Ease of Admin",
+                        "value": 5.0
+                    },
+                    "ease_of_doing_business_with": {
+                        "text": "Has the product been a good partner in doing business?",
+                        "value": 7.0
+                    }
+                },
+                "verified_current_user": true,
+                "is_business_partner": false,
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
+                "votes_up": 0,
+                "votes_down": 0,
+                "votes_total": 0,
+                "user_id": "bc9f6fae-b106-4d54-8520-d0d9d23a6248",
+                "user_name": "Johanna Edepil",
+                "user_image_url": "https://lh3.googleusercontent.com/a-/AFdZucr3O4kuyvfAMl5aN8YZEyifRwJ71UMXdU6NGrl2bw=s96-c",
+                "country_name": "Sweden",
+                "regions": [
+                    "EMEA",
+                    "Nordic",
+                    "Europe"
+                ],
+                "submitted_at": "2022-09-07T08:33:29.530-05:00",
+                "updated_at": "2022-09-07T08:33:29.722-05:00",
+                "moderated_at": "2022-09-07T21:05:00.690-05:00",
+                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
+                "reference_user_consent": "accepted",
+                "status": "approved"
+            },
+            "relationships": {
+                "product": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7079149/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7079149/product"
+                    }
+                },
+                "questions": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7079149/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7079149/questions"
+                    }
+                },
+                "answers": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7079149/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7079149/answers"
+                    }
+                }
+            }
+        },
+        {
+            "id": "7079155",
+            "type": "survey_responses",
+            "links": {
+                "self": "https://data.g2.com/api/v1/survey-responses/7079155"
+            },
+            "attributes": {
+                "default_sort": 6.412568643511579,
+                "product_name": "G2 Marketing Solutions",
+                "is_public": true,
+                "slug": "g2-marketing-solutions-review-7079155",
+                "percent_complete": 0.32142857142857145,
+                "star_rating": 4.0,
+                "title": "Great support from the G2 team!",
+                "comment_answers": {
+                    "love": {
+                        "text": "What do you like best about the product?",
+                        "value": "All the help from the G2 team during our onboarding process. They have shared insights on how to best use the G2 features to maximize the value from the solution, and also shared tips on how to encourage our customers to leave reviews."
+                    },
+                    "hate": {
+                        "text": "What do you dislike about the product?",
+                        "value": "Not much to dislike, but sometimes the possibility to customize pages and information even more."
+                    },
+                    "benefits": {
+                        "text": "What problems is the product solving and how is that benefiting you?",
+                        "value": "G2 is helping us to gather feedback from our customers to better understand their experiences of using our product."
+                    }
+                },
+                "secondary_answers": {},
+                "verified_current_user": false,
+                "is_business_partner": false,
+                "review_source": "G2 Gives Campaign. This reviewer was offered a donation to a charitable cause in their name as thanks for completing this review.",
+                "votes_up": 0,
+                "votes_down": 0,
+                "votes_total": 0,
+                "user_id": "1e6f5bd9-662b-431e-9fb3-00d788166f6b",
+                "user_name": "Greta Johansson",
+                "user_image_url": "https://lh3.googleusercontent.com/a-/AOh14GhVfnG9L-DIM1Lu247Bu639xYJfyHT880VrM0Lz=s96-c",
+                "country_name": "Sweden",
+                "regions": [
+                    "EMEA",
+                    "Nordic",
+                    "Europe"
+                ],
+                "submitted_at": "2022-09-08T05:40:07.303-05:00",
+                "updated_at": "2022-09-08T05:40:07.442-05:00",
+                "moderated_at": "2022-09-08T09:05:00.679-05:00",
+                "product_id": "a7d324a4-06eb-4be2-ad8e-65938bce5fd5",
+                "reference_user_consent": "accepted",
+                "status": "approved"
+            },
+            "relationships": {
+                "product": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7079155/relationships/product",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7079155/product"
+                    }
+                },
+                "questions": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7079155/relationships/questions",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7079155/questions"
+                    }
+                },
+                "answers": {
+                    "links": {
+                        "self": "https://data.g2.com/api/v1/survey-responses/7079155/relationships/answers",
+                        "related": "https://data.g2.com/api/v1/survey-responses/7079155/answers"
                     }
                 }
             }
@@ -848,7 +871,8 @@
     },
     "links": {
         "first": "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=1&page%5Bsize%5D=10",
-        "next": "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=2&page%5Bsize%5D=10",
+        "prev": "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=46&page%5Bsize%5D=10",
+        "next": "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=48&page%5Bsize%5D=10",
         "last": "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=77&page%5Bsize%5D=10"
     }
 }
