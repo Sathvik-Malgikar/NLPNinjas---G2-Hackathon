@@ -55,6 +55,13 @@ import time
 
 url = "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=1&page%5Bsize%5D=10" # param id can be added optionally
 
+empty_results = {
+    "average_star_rating": 0,
+    "num_reviews": 0
+}
+
+write_json_to_file(empty_results,"results.json")
+
 while True:
     t1 = time.time()
     response = get_response_from_endpoint(url, headers=custom_headers)
