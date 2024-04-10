@@ -1,0 +1,154 @@
+[
+    {
+        "country_name": "Armenia",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Australia",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Austria",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Belgium",
+        "star_rating": 4.4
+    },
+    {
+        "country_name": "Bulgaria",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Canada",
+        "star_rating": 4.681818181818182
+    },
+    {
+        "country_name": "Colombia",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Cyprus",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Czech Republic",
+        "star_rating": 4.785714285714286
+    },
+    {
+        "country_name": "Denmark",
+        "star_rating": 4.625
+    },
+    {
+        "country_name": "Estonia",
+        "star_rating": 4.833333333333333
+    },
+    {
+        "country_name": "France",
+        "star_rating": 4.833333333333333
+    },
+    {
+        "country_name": "Germany",
+        "star_rating": 4.785714285714286
+    },
+    {
+        "country_name": "Ghana",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Greece",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "India",
+        "star_rating": 4.794117647058823
+    },
+    {
+        "country_name": "Indonesia",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Ireland",
+        "star_rating": 4.409090909090909
+    },
+    {
+        "country_name": "Israel",
+        "star_rating": 4.6923076923076925
+    },
+    {
+        "country_name": "Italy",
+        "star_rating": 4.5
+    },
+    {
+        "country_name": "Latvia",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Malta",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Netherlands",
+        "star_rating": 4.375
+    },
+    {
+        "country_name": "Philippines",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Poland",
+        "star_rating": 4.8
+    },
+    {
+        "country_name": "Portugal",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Romania",
+        "star_rating": 4.75
+    },
+    {
+        "country_name": "Serbia",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Singapore",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Slovakia",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "South Africa",
+        "star_rating": 4.75
+    },
+    {
+        "country_name": "Spain",
+        "star_rating": 4.75
+    },
+    {
+        "country_name": "Sweden",
+        "star_rating": 4.65
+    },
+    {
+        "country_name": "Switzerland",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "Turkey",
+        "star_rating": 5.0
+    },
+    {
+        "country_name": "United Arab Emirates",
+        "star_rating": 4.0
+    },
+    {
+        "country_name": "United Kingdom",
+        "star_rating": 4.654761904761905
+    },
+    {
+        "country_name": "United States",
+        "star_rating": 4.65234375
+    }
+]
