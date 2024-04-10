@@ -6,7 +6,7 @@
 
 ## Overview
 
-This is the source code for the client review analysis & summarisation pipeline used by G2.com
+This is the source code for the client review analysis & summarisation pipeline used by [G2 Website Link](https://g2.com)
 Unbiased customer reviews are gathered from the above mentioned API endpoints and a database is built that contains organised information about different opinions and perspectives on our products. This is used by a query / search mechanism to help those looking to try our solutions to navigate reviews and get a picture of what we do and simplified view of various review metrics like votes & ratings.
 
 ## Implementation
