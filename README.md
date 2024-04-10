@@ -39,33 +39,10 @@ Some useful links that might help you:
 
 ## Source Code sitemap
 ```
-ABOUT-NLS          - Notes on the Free Translation Project.
-AUTHORS            - VLC authors.
-COPYING            - The GPL license.
-COPYING.LIB        - The LGPL license.
-INSTALL            - Installation and building instructions.
-NEWS               - Important modifications between the releases.
-README             - Project summary.
-THANKS             - VLC contributors.
-
-bin/               - VLC binaries.
-bindings/          - libVLC bindings to other languages.
-compat/            - compatibility library for operating systems missing
-                     essential functionalities.
-contrib/           - Facilities for retrieving external libraries and building
-                     them for systems that don't have the right versions.
-doc/               - Miscellaneous documentation.
-extras/analyser    - Code analyser and editor specific files.
-extras/buildsystem - Different build system specific files.
-extras/misc        - Files that don't fit in the other extras/ categories.
-extras/package     - VLC packaging specific files such as spec files.
-extras/tools/      - Facilities for retrieving external building tools needed
-                     for systems that don't have the right versions.
-include/           - Header files.
-lib/               - libVLC source code.
-modules/           - VLC plugins and modules. Most of the code is here.
-po/                - VLC translations.
-share/             - Common resource files.
-src/               - libvlccore source code.
-test/              - Testing system.
+/scraping_api                Contains notebook used to parse through API and scrape all the reviews, store them into a CSV (reviews.csv) for further processing
+/review_components           Contains individual parts responsible for different metrics and aggregate analysis (average secondary comments metrics , keywords , regionwise ratings,etc)
+process_reviews.py           This is the mainfile that reads reviews.csv and uses above mentioned review components then dumps all generated results into insights.json
+insights.json                  Contains all the insights gathered from the processing to be used by flask backend to serve responses to users
+/frontend                    contains the Web UI & charts Single Page Application built using React JS.
+server.py                    contains python flask code responsible for routing and backend logic 
 ```
