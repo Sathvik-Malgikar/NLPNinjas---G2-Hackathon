@@ -2,7 +2,6 @@ import pandas as pd
 import statistics
 
 # Read CSV file into a DataFrame
-df = pd.read_csv('reviews.csv')
 
 ease_of_use = []
 meets_requirements = []
@@ -42,16 +41,27 @@ def extract_secondary_comments_value(value):
     val = secondary_answers.get('ease_of_doing_business_with')  # 0 is default value if key doesn't exist
     if val is not None:
         ease_of_doing_business_with.append(val["value"])
-   
 
-df['attributes'].apply(extract_secondary_comments_value)
+def get_avg_values():
+    return {
+        "ease_of_use" : statistics.mean(ease_of_use),
+        "meets_requirements" : statistics.mean(meets_requirements),
+        "quality_of_support" : statistics.mean(quality_of_support),
+        "ease_of_setup" : statistics.mean(ease_of_setup),
+        "ease_of_admin" : statistics.mean(ease_of_admin),
+        "ease_of_doing_business_with" : statistics.mean(ease_of_doing_business_with)
+    }
 
-print(f"average score for ease_of_use is {(statistics.mean(ease_of_use))}")
-print(f"average score for meets_requirements is {(statistics.mean(meets_requirements))}")
-print(f"average score for quality_of_support is {(statistics.mean(quality_of_support))}")
-print(f"average score for ease_of_setup is {(statistics.mean(ease_of_setup))}")
-print(f"average score for ease_of_admin is {(statistics.mean(ease_of_admin))}")
-print(f"average score for ease_of_doing_business_with is {(statistics.mean(ease_of_doing_business_with))}")
+if __name__=="__main__":
+    df = pd.read_csv('reviews.csv')
+    df['attributes'].apply(extract_secondary_comments_value)
+
+    print(f"average score for ease_of_use is {(statistics.mean(ease_of_use))}")
+    print(f"average score for meets_requirements is {(statistics.mean(meets_requirements))}")
+    print(f"average score for quality_of_support is {(statistics.mean(quality_of_support))}")
+    print(f"average score for ease_of_setup is {(statistics.mean(ease_of_setup))}")
+    print(f"average score for ease_of_admin is {(statistics.mean(ease_of_admin))}")
+    print(f"average score for ease_of_doing_business_with is {(statistics.mean(ease_of_doing_business_with))}")
 
 
-    
+        

@@ -14,7 +14,11 @@ def extract_vote_counts(value):
     upvotes += data.get('votes_up', 0)  # 0 is default value if key doesn't exist
     downvotes += data.get('votes_down', 0)  # 0 is default value if key doesn't exist
     totalvotes += data.get('votes_total', 0)  # 0 is default value if key doesn't exist
-    
-df['attributes'].apply(extract_vote_counts)
 
-print(f"Total votes are {totalvotes}, upvotes are {upvotes} and downvotes are {downvotes}.")
+def getvotesinfo():
+    return totalvotes,upvotes,downvotes
+
+if __name__ =="__main__":
+    df['attributes'].apply(extract_vote_counts)
+
+    print(f"Total votes are {totalvotes}, upvotes are {upvotes} and downvotes are {downvotes}.")
