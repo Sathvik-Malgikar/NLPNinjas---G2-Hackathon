@@ -1,9 +1,11 @@
 from flask import Flask
 import json
 
-def read_insights(data):
-    with open("insights.json", 'w') as file:
-        json.dump(data, file, indent=4)
+def read_insights():
+    global insights
+    with open("insights.json", 'r') as file:
+        insights = json.load(file)
+        
 
 app = Flask(__name__)
 
@@ -13,7 +15,7 @@ def hello_world():
 
 # main driver function
 if __name__ == '__main__':
-
+    read_insights()
 	# run() method of Flask class runs the application 
 	# on the local development server.
-	app.run()
+    app.run()
