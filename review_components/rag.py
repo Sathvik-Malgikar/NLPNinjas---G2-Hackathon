@@ -5,11 +5,11 @@ from langchain_community.vectorstores import Chroma
 embedding_function = SentenceTransformerEmbeddings(
     model_name="all-MiniLM-L6-v2")
 
-loader = JSONLoader(file_path="../responses/prize.json",
-                    jq_schema=".prizes[]", text_content=False)
+loader = JSONLoader(file_path="../response.json",
+                    jq_schema=".data[]", text_content=False)
 documents = loader.load()
 
 db = Chroma.from_documents(documents, embedding_function)
-query = "What year did albert einstein win the nobel prize?"
+query = "Is G2 useful?"
 docs = db.similarity_search(query)
 print(docs[0].page_content)
