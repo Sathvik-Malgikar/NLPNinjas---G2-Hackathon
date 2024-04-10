@@ -105,7 +105,7 @@ def extract_features(review_text):
     Extracts feature sets from a single review in JSON format.
 
     Args:
-        review_json: A dictionary containing the review data.
+        review_text: A string containing review.
 
     Returns:
         A dictionary containing extracted features and sentiment.
@@ -148,7 +148,7 @@ def extract_features_textblob(review_text):
     Extracts feature sets from a single review in JSON format using TextBlob.
 
     Args:
-        review_json: A dictionary containing the review data.
+        review_text: A string containing review.
 
     Returns:
         A dictionary containing extracted features and sentiment.
