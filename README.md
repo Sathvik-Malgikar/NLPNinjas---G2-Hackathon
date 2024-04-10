@@ -41,8 +41,8 @@ Some useful links that might help you:
 ```
 /scraping_api                Contains notebook used to parse through API and scrape all the reviews, store them into a CSV (reviews.csv) for further processing
 /review_components           Contains individual parts responsible for different metrics and aggregate analysis (average secondary comments metrics , keywords , regionwise ratings,etc)
-process_reviews.py           This is the mainfile that reads reviews.csv and uses above mentioned review components then dumps all generated results into output.json
-output.json                  Contains all the insights gathered from the processing to be used by flask backend to serve responses to users
+process_reviews.py           This is the mainfile that reads reviews.csv and uses above mentioned review components then dumps all generated results into insights.json
+insights.json                  Contains all the insights gathered from the processing to be used by flask backend to serve responses to users
 /frontend                    contains the Web UI & charts Single Page Application built using React JS.
 server.py                    contains python flask code responsible for routing and backend logic 
 ```

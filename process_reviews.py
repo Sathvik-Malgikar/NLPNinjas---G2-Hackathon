@@ -7,7 +7,7 @@ from review_components.vote_counter import extract_vote_counts,getvotesinfo
 from review_components.average_secondary_metrics import extract_secondary_comments_value,get_avg_values
 
 def write_output(data):
-    with open("output.json", 'w') as file:
+    with open("insights.json", 'w') as file:
         json.dump(data, file, indent=4)
 
 
