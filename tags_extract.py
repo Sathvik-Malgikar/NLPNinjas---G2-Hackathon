@@ -15,6 +15,20 @@ import summa
 
 from sklearn.metrics.pairwise import cosine_similarity
 
+import yake
+
+text = """spaCy is an open-source software library for advanced natural language processing, written in the programming languages Python and Cython. The library is published under the MIT license and its main developers are Matthew Honnibal and Ines Montani, the founders of the software company Explosion."""
+language = "en"
+max_ngram_size = 3
+deduplication_threshold = 0.9
+numOfKeywords = 8
+custom_kw_extractor = yake.KeywordExtractor(lan=language, n=max_ngram_size, dedupLim=deduplication_threshold, top=numOfKeywords, features=None)
+
+
+def extract_keywords(sentence):
+    
+    keywords = custom_kw_extractor.extract_keywords(sentence)
+    return keywords
 
 def aspect_sentiment_analysis(text, aspect):
     sid = SentimentIntensityAnalyzer()
@@ -30,7 +44,7 @@ def aspect_sentiment_analysis(text, aspect):
     else:
         return None
 
-
+#POS tagging
 def extract_tags(sentence):
     # Load English tokenizer, tagger, parser, NER, and word vectors
     nlp = spacy.load("en_core_web_sm")
@@ -44,15 +58,6 @@ def extract_tags(sentence):
     return tags
 
 
-def extract_keywords(sentence, num_keywords=5):
-    # Tokenize the sentence into words
-    words = nltk.word_tokenize(sentence)
-    # Convert the list of words into a space-separated string
-    text = " ".join(words)
-    # Extract keywords using TextRank algorithm
-    extracted_keywords = summa.keywords.keywords(text, words=num_keywords)
-    # Split the extracted keywords and return them as a list
-    return extracted_keywords.split('\n')
 
 
 def compute_similarity(query_keywords, product_tags):
@@ -201,7 +206,7 @@ def extract_features_textblob(review_text):
 # Example usage:
 if __name__ == "__main__":
     # Example usage
-    # sentence = "Apple is looking at buying U.K. startup for $1 billion"
+    sentence = "Apple is looking at buying U.K. startup for $1 billion"
     # tags = extract_tags(sentence)
     # print(tags)
 
@@ -210,7 +215,7 @@ if __name__ == "__main__":
     # print ( aspect_sentiment_analysis(sentence,common_aspects[0]))
 
     # sentence = "Natural language processing (NLP) is a subfield of linguistics, computer science, and artificial intelligence (AI) concerned with the interactions between computers and human language."
-    # print ( extract_keywords(sentence,8))
+    print ( extract_keywords(sentence))
 
     # print( compute_similarity(["perfume"],["perform"]))
 
@@ -227,9 +232,9 @@ if __name__ == "__main__":
     # for product_id, similarity_score in search_results:
     #     print(f"Product ID: {product_id}, Similarity Score: {similarity_score}")
 
-    file_path = 'data.json'  # Replace with your JSON file path
-    product_id = 'new_product'
-    tags = 'new_value'
+    # file_path = 'data.json'  # Replace with your JSON file path
+    # product_id = 'new_product'
+    # tags = 'new_value'
     # with open("response.json", "r") as f:
     #     review_data = json.loads(f.read())
     # review_list = review_data["data"]
