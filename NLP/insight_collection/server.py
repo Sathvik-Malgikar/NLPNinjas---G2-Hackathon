@@ -48,7 +48,7 @@ def execute_kaggle_notebook(queue):
         if status['status'] == 'complete':
             break
         time.sleep(10)
-    # queue.put(status['status'])
+    queue.put(status['status'])
     return status['status']
 
 
@@ -65,7 +65,7 @@ def hello_world():
     return 'Hello World'
 
 
-@app.route('/aggregates/average_secondary_metrics')
+@app.route('/aggregates/average-secondary-metrics')
 def get_average_secondary_metrics():
     resp = Response()
     json_data = read_insights("average_secondary_metrics.json")
@@ -74,7 +74,7 @@ def get_average_secondary_metrics():
     return resp
 
 
-@app.route('/aggregates/votes_data')
+@app.route('/aggregates/votes-data')
 def get_votes_data():
     resp = Response()
     json_data = read_insights("votes_aggregation.json")
@@ -83,10 +83,28 @@ def get_votes_data():
     return resp
 
 
-@app.route('/aggregates/regionwise_rating')
+@app.route('/aggregates/regionwise-rating')
 def get_regionwise_rating():
     resp = Response()
     json_data = read_insights("regionwise_rating.json")
+    resp.headers["Content-Type"] = "application/json"
+    resp.data = json.dumps(json_data)
+    return resp
+
+
+@app.route('/aggregates/aspect-keywords')
+def get_aspect_keywords():
+    resp = Response()
+    json_data = read_insights("extract_features_spacy.json")
+    resp.headers["Content-Type"] = "application/json"
+    resp.data = json.dumps(json_data)
+    return resp
+
+
+@app.route('/aggregates/polarity-keywords')
+def get_aspect_keywords():
+    resp = Response()
+    json_data = read_insights("extract_features_textblob_polarity.json")
     resp.headers["Content-Type"] = "application/json"
     resp.data = json.dumps(json_data)
     return resp
@@ -108,10 +126,10 @@ def query_rag_gemma():
     # results = queue.get()
 
 
-@app.route('/rag/get_results')
+@app.route('/rag/get-results')
 def get_rag_prompt_results():
-    if(queue.qsize()==0):
-        return jsonify({"message":"No results Available"})
+    if (queue.qsize() == 0):
+        return jsonify({"message": "No results Available"})
     resp = Response()
     results = queue.get()
     resp.headers["Content-Type"] = "application/json"
