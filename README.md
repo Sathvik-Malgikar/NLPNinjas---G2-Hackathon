@@ -21,6 +21,29 @@ The found in /frontend can be run as development server using
 npm start
 ```
 
+## Commands.
+To setup all required dependencies for processing reviews:
+```
+pip install -r requirements.txt
+```
+This will install NLP bundles needed.
+
+Use the following command to initiate review processing:
+```
+python process_reviews.py
+```
+This will generate several json files and CSV files with aggregate info in /insight_collection/outputs .
+
+Use this command to serve a local flask development server for serving generated info to at API endpoints:
+```
+python server.py
+```
+Now, at http://127.0.0.1:5000/ the following endpoints should be accessible:
+
+* /aggregates/average_secondary_metrics
+* /aggregates/votes_data
+* /aggregates/regionwise_rating
+
 ## How are reviews aggregated?
 
 * Country-wise star-rating
@@ -39,10 +62,11 @@ Some useful links that might help you:
 
 ## Source Code sitemap
 ```
-/scraping_api                Contains notebook used to parse through API and scrape all the reviews, store them into a CSV (reviews.csv) for further processing
-/review_components           Contains individual parts responsible for different metrics and aggregate analysis (average secondary comments metrics , keywords , regionwise ratings,etc)
-process_reviews.py           This is the mainfile that reads reviews.csv and uses above mentioned review components then dumps all generated results into insights.json
-insights.json                  Contains all the insights gathered from the processing to be used by flask backend to serve responses to users
-/frontend                    contains the Web UI & charts Single Page Application built using React JS.
-server.py                    contains python flask code responsible for routing and backend logic 
+/NLP/data_collection                Contains notebook used to parse through API and scrape all the reviews, store them into a CSV (reviews.csv) for further processing
+/insight_collection           Contains individual parts responsible for different metrics and aggregate analysis (average secondary comments metrics , keywords , regionwise ratings,etc)
+process_reviews.py           This is the mainfile that reads reviews.csv and uses above mentioned review components then dumps all generated results into several json files in /insight_collection/outputs
+/insight_collection/outputs   Contains all the insights gathered from the processing to be used by flask backend to serve responses to users
+/frontend                    Contains the Web UI & charts Single Page Application built using React JS.
+server.py                    Contains python flask code responsible for routing and backend logic 
+requirements.txt             Contains names and versions of different python modules and packages used.  
 ```

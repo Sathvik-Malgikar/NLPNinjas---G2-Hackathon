@@ -11,8 +11,6 @@ import nltk
 from collections import Counter
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-import summa
-
 from sklearn.metrics.pairwise import cosine_similarity
 
 import yake
@@ -22,13 +20,15 @@ language = "en"
 max_ngram_size = 3
 deduplication_threshold = 0.9
 numOfKeywords = 8
-custom_kw_extractor = yake.KeywordExtractor(lan=language, n=max_ngram_size, dedupLim=deduplication_threshold, top=numOfKeywords, features=None)
+custom_kw_extractor = yake.KeywordExtractor(
+    lan=language, n=max_ngram_size, dedupLim=deduplication_threshold, top=numOfKeywords, features=None)
 
 
 def extract_keywords(sentence):
-    
+
     keywords = custom_kw_extractor.extract_keywords(sentence)
     return keywords
+
 
 def aspect_sentiment_analysis(text, aspect):
     sid = SentimentIntensityAnalyzer()
@@ -44,7 +44,9 @@ def aspect_sentiment_analysis(text, aspect):
     else:
         return None
 
-#POS tagging
+# POS tagging
+
+
 def extract_tags(sentence):
     # Load English tokenizer, tagger, parser, NER, and word vectors
     nlp = spacy.load("en_core_web_sm")
@@ -56,8 +58,6 @@ def extract_tags(sentence):
     tags = [(token.text, token.pos_, token.ent_type_) for token in doc]
 
     return tags
-
-
 
 
 def compute_similarity(query_keywords, product_tags):
@@ -100,7 +100,8 @@ def append_to_json_file(file_path, key, value):
         json.dump(data, file, indent=4)
 
 
-def extract_features(review_text):
+def extract_features(review_text, aspects=["ease of use", "customer support",
+                                           "integration", "value for money"]):
     """
     Extracts feature sets from a single review in JSON format.
 
@@ -121,8 +122,8 @@ def extract_features(review_text):
     doc = nlp(review_text)  # Parse the text with spaCy
 
     # Define aspects (features) to identify
-    aspects = ["ease of use", "customer support",
-               "integration", "value for money"]
+    # aspects = ["ease of use", "customer support",
+    #            "integration", "value for money"]
 
     # Extract features and sentiment
     features = {}
@@ -166,7 +167,7 @@ def extract_features_textblob(review_text):
     elif blob.sentiment.polarity < 0:
         sentiment = "negative"
 
-    return {"features": features, "sentiment": sentiment}
+    return {"features": features, "sentiment": sentiment, "polarity": blob.sentiment.polarity}
 
 
 # def append_to_json_file_efficient(file_path, key, value):
@@ -174,7 +175,6 @@ def extract_features_textblob(review_text):
     # with open(file_path, 'r+') as file:
     #     # Move the file pointer to the end
     #     file.seek(0, 2)
-
     #     pos = file.tell()
     #     while pos > 0:
     #         pos -= 1
@@ -182,7 +182,6 @@ def extract_features_textblob(review_text):
     #         if file.read(1) == '}':
     #             file.seek(pos)
     #             break
-
     #     # Remove one closing curly brace character if it's not the first record
     #     if pos > 0:
     #         file.truncate()
@@ -215,7 +214,7 @@ if __name__ == "__main__":
     # print ( aspect_sentiment_analysis(sentence,common_aspects[0]))
 
     # sentence = "Natural language processing (NLP) is a subfield of linguistics, computer science, and artificial intelligence (AI) concerned with the interactions between computers and human language."
-    print ( extract_keywords(sentence))
+    print(extract_keywords(sentence))
 
     # print( compute_similarity(["perfume"],["perform"]))
 

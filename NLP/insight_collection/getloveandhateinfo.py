@@ -14,7 +14,7 @@ def get_love_and_hate_comment_keywords(column_value,review_id):
         love_text = data["comment_answers"]["love"]["value"]
         hate_text = data["comment_answers"]["hate"]["value"]
         
-        return json.dumps({"review_id" : review_id, "love_keywords" : extract_keywords(love_text),"hate_keywords" : extract_keywords(hate_text)})
+        return ({"review_id" : review_id, "love_keywords" : extract_keywords(love_text),"hate_keywords" : extract_keywords(hate_text)})
     except Exception as e:
         print(e)
         print("keyword extraction failed!")
