@@ -26,19 +26,19 @@ To setup all required dependencies for processing reviews:
 ```
 pip install -r requirements.txt
 ```
-This will install NLP bundles.
+This will install NLP bundles needed.
 
 Use the following command to initiate review processing:
 ```
 python process_reviews.py
 ```
-This will generate several json files and CSV files with aggregate info in /insight_collection/outputs 
+This will generate several json files and CSV files with aggregate info in /insight_collection/outputs .
 
 Use this command to serve a local flask development server for serving generated info to at API endpoints:
 ```
 python server.py
 ```
-Now, at http://127.0.0.1:5000/ the following endpoints should be accesible:
+Now, at http://127.0.0.1:5000/ the following endpoints should be accessible:
 
 * /aggregates/average_secondary_metrics
 * /aggregates/votes_data
