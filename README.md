@@ -26,7 +26,7 @@ This will setup required dependencies for processing reviews, and installs NLP b
 ```
 pip install -r requirements.txt
 ```
-Use the following command to initiate review processing. This will generate several json files and CSV files with aggregate info.
+Use the following command to initiate review processing. This will generate several json files and CSV files with aggregate info in /insight_collection/outputs 
 ```
 python process_reviews.py
 ```
