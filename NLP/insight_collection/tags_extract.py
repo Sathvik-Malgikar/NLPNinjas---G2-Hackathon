@@ -11,8 +11,6 @@ import nltk
 from collections import Counter
 from sklearn.feature_extraction.text import TfidfVectorizer
 
-import summa
-
 from sklearn.metrics.pairwise import cosine_similarity
 
 import yake

@@ -37,7 +37,11 @@ if __name__=="__main__":
     # Group by 'country' column and calculate average of 'star_rating'
     avg_ratings = df.groupby('country_name')['star_rating'].mean()
     data = avg_ratings.reset_index().to_dict(orient='records')
-    
+    aug_data={}
+    for ele in data:
+        aug_data[ele["country_name"]] = ele["star_rating"]
+        
+    data = aug_data
     write_output("regionwise_rating.json" , data)
     
     # love ane hate keywords
