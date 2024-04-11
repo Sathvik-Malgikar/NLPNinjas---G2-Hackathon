@@ -8,6 +8,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 from flask_cors import CORS
 from queue import Queue
 import asyncio
+from rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
 
 kaggle_api = KaggleApi()
 try:
@@ -95,17 +96,31 @@ def get_regionwise_rating():
 @app.route('/aggregates/aspect-keywords')
 def get_aspect_keywords():
     resp = Response()
-    json_data = read_insights("extract_features_spacy.json")
+    json_data = read_insights("extracted_features_spacy.json")
     resp.headers["Content-Type"] = "application/json"
     resp.data = json.dumps(json_data)
     return resp
 
 
 @app.route('/aggregates/polarity-keywords')
-def get_aspect_keywords():
+def get_polarity_keywords():
     resp = Response()
-    json_data = read_insights("extract_features_textblob_polarity.json")
+    json_data = read_insights("extracted_features_textblob_polarity.json")
     resp.headers["Content-Type"] = "application/json"
+    resp.data = json.dumps(json_data)
+    return resp
+
+
+@app.route("/search/similar-docs", methods=["POST"])
+def get_similar_docs():
+    resp = Response()
+    request_data = request.get_json()
+    query = request_data["query"]
+    resp.headers["Content-Type"] = "application/json"
+    similar_docs = retrieve_similar_docs(query, chroma_db)
+    similar_docs_page_content = retrieve_similar_docs_page_content(
+        similar_docs)
+    json_data = {"data": similar_docs_page_content}
     resp.data = json.dumps(json_data)
     return resp
 
@@ -148,4 +163,5 @@ def get_rag_prompt_results():
 if __name__ == '__main__':
     # run() method of Flask class runs the application
     # on the local development server.
+    chroma_db = init_sentence_transformer_with_db()
     app.run()
