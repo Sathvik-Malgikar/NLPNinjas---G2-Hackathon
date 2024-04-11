@@ -1,7 +1,6 @@
 import pandas as pd
 
 # Read CSV file into a DataFrame
-df = pd.read_csv('reviews.csv')
 
 upvotes =0
 downvotes = 0
@@ -19,6 +18,7 @@ def getvotesinfo():
     return totalvotes,upvotes,downvotes
 
 if __name__ =="__main__":
+    df = pd.read_csv('reviews.csv')
     df['attributes'].apply(extract_vote_counts)
 
     print(f"Total votes are {totalvotes}, upvotes are {upvotes} and downvotes are {downvotes}.")
