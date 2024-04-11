@@ -68,13 +68,13 @@ if __name__ == "__main__":
 
     # write_output("average_secondary_metrics.json", data)
 
-    extracted_features_from_review = df['attributes'].apply(
-        lambda x: extract_features_wrapper(x, extract_features))
+    # extracted_features_from_review = df['attributes'].apply(
+    #     lambda x: extract_features_wrapper(x, extract_features))
     extracted_features_textblob_from_review = df['attributes'].apply(
         lambda x: extract_features_wrapper(x, extract_features_textblob))
-    review_features = {"review_data": extracted_features_from_review.tolist()}
+    # review_features = {"review_data": extracted_features_from_review.tolist()}
     review_features_textblob = {
-        "review_data": extracted_features_from_review.tolist()}
-    write_output("extracted_features_spacy.json", review_features)
+        "review_data": extracted_features_textblob_from_review.tolist()}
+   # write_output("extracted_features_spacy.json", review_features)
     write_output("extracted_features_textblob_polarity.json",
                  review_features_textblob)
