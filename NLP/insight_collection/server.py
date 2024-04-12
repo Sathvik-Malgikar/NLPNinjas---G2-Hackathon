@@ -83,6 +83,7 @@ def get_votes_data():
     resp.data = json.dumps(json_data)
     return resp
 
+
 @app.route('/keyword-inferences')
 def get_keyword_inferences():
     resp = Response()
@@ -160,6 +161,9 @@ def get_rag_prompt_results():
         logs = kaggle_api.kernel_output("hemabhushan", "rag-gemma-2")
         res = get_rag_gemma_results(logs)
         data = {"results": res}
+        resp.data = json.dumps(data)
+    elif results == 'running':
+        data = {"results": "Still running"}
         resp.data = json.dumps(data)
     elif results == 'error':
         data = {"results": "Failed to execute prompt on Cloud GPU"}
