@@ -142,7 +142,7 @@ def query_rag_gemma():
     request_data = request.get_json()
     query = request_data["query"]
     new_content = f"""query='{query}'"""
-    replace_line("./kaggle_notebooks/rag_gemma.py", 351, new_content)
+    replace_line("./NLP/insight_collection/kaggle_notebooks/rag_gemma.py", 351, new_content)
     thread = threading.Thread(target=execute_kaggle_notebook, args=(queue,))
     thread.start()
     return jsonify({'message': 'Data processing started'}), 202

@@ -254,9 +254,26 @@ const Search = () => {
         // frameborder="0"
         ></iframe>
       </div> */}
-      <div className='w-full flex flex-col gap-8 items-center'>
+      <div className='w-2/3 flex flex-col gap-8 items-center'>
         <h1 className='barlow-medium text-2xl'>Chat with reviews directly through Monty!</h1>
-        <CustomChatBot></CustomChatBot>
+        <div className='w-full grid grid-cols-2 place-items-center gap-4'>
+
+          <h1 className='barlow-medium text-lg' >In house chatbot built with Gemma-2B</h1>
+          <h1 className='barlow-medium text-lg' >Chatbot built using Chatbase</h1>
+
+          <div className='h-full min-h-[500px] border-solid border-[1px] border-black p-4'>
+            <CustomChatBot className='border-solid border-[1px] border-black'></CustomChatBot>
+          </div>
+          <iframe
+            src="https://www.chatbase.co/chatbot-iframe/D_-F0yu8p0EwL9XIUNmgB"
+            title="Chatbot"
+            width="100%"
+            // style="height: 100%; min-height: 700px"
+            className='h-full min-h-[500px] border-solid border-[1px] border-black p-4'
+            frameborder="0"
+            ></iframe>
+
+        </div>
       </div>
 
 
