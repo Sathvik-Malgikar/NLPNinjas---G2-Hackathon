@@ -7,11 +7,19 @@ import {countryCodes, secondaryMetricsMap} from '../components/Mappers'
 import axios from 'axios'
 import { BACKEND_URL } from '../App';
 import MetricCard from '../components/MetricCard';
+import CustomChatBot from '../components/CustomChatbot/CustomChatbot'
+
+import Chatbot from 'react-chatbot-kit'
+import 'react-chatbot-kit/build/main.css'
+
+// TODO
+// Map's scaling issue (tooltip)
 
 const Search = () => {
 
   const [regionwiseData, setRegionwiseData] = useState([]);
   const [secondaryMetrics, setSecondaryMetrics] = useState(null);
+  const [reviewData, setReviewData] = useState([]);
 
   const getFormattedRegionwiseData = (data)=>{
     let formattedData = [];
@@ -40,14 +48,32 @@ const Search = () => {
     // secondary metrics
     axios.get(BACKEND_URL+'/aggregates/average-secondary-metrics')
     .then((res)=>{
-      console.log(res['data'])
         setSecondaryMetrics(res['data'])
     })
     .catch(()=>{
       console.error('Failed to fetch secondary metrics')
     })
 
-    //
+    // review data
+    axios.get(BACKEND_URL+'/aggregates/aspect-keywords')
+    .then((res)=>{
+      setReviewData(res['data']['review_data'])
+    })
+    .catch(()=>{
+      console.error('Failed to fetch review data')
+    })
+
+
+    // polarity keywords
+    axios.get(BACKEND_URL+'/aggregates/polarity-keywords')
+    .then((res)=>{
+      // console.log(res['data'])
+      // setReviewData(res['data']['review_data'])
+    })
+    .catch(()=>{
+      console.error('Failed to fetch review data')
+    })
+
 
   }, [])
 
@@ -73,11 +99,11 @@ const Search = () => {
       </div>
 
       {regionwiseData && 
-      <div className='w-full flex flex-col items-center'>
+      <div className='w-full flex flex-col items-center scale-[0.9]'>
         <h1 className='barlow-medium text-2xl'>Performance of this product throughout the world</h1>
         <WorldMap
           color='red'
-          size="xl"
+          size="xxl"
           data={regionwiseData}
         ></WorldMap>
       </div>
@@ -88,12 +114,26 @@ const Search = () => {
       <div className='w-[80%] grid grid-cols-3 place-items-center gap-16'>
           {Object.keys(secondaryMetrics).map((metric)=>{
             return (
-              <MetricCard name={secondaryMetricsMap[metric]} value={secondaryMetrics[metric]}></MetricCard>
+              <MetricCard key={metric} name={secondaryMetricsMap[metric]} value={secondaryMetrics[metric]}></MetricCard>
             )
           })}
       </div>
-      
       }
+
+      {/* <div>
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/u9WqEL33R2L_quBkBfy09"
+        title="Chatbot"
+        width="100%"
+        className='min-h-96 w-[50vw]'
+        // style="height: 100%; min-height: 700px"
+        // frameborder="0"
+        ></iframe>
+      </div> */}
+      <div className='w-full flex flex-col gap-8 items-center'>
+        <h1 className='barlow-medium text-2xl'>Chat with reviews directly through Monty!</h1>
+        <CustomChatBot></CustomChatBot>
+      </div>
 
     </main>
   )

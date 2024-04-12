@@ -85,7 +85,6 @@ def get_votes_data():
     resp.data = json.dumps(json_data)
     return resp
 
-
 @app.route('/keyword-inferences')
 def get_keyword_inferences():
     resp = Response()

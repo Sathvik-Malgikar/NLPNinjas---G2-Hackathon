@@ -7,7 +7,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   return (
-    <nav className='w-full fixed top-0 px-4 grid grid-cols-10 place-items-center'>
+    <nav className='w-full fixed top-0 px-4 grid grid-cols-10 place-items-center z-50'>
 
         <img 
           src={g2Logo} 

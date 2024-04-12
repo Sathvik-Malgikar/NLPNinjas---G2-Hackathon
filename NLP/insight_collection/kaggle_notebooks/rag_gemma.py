@@ -349,7 +349,7 @@ chain = (
 
 # In[30]:
 
-query='Explain more about G2'
+query='Hello, how are you?'
 query_res=chain.invoke(query).replace('\n','')
 print(f"StartResults {query_res} EndResults")
 
