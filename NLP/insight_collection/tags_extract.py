@@ -170,6 +170,28 @@ def extract_features_textblob(review_text):
     return {"features": features, "sentiment": sentiment, "polarity": blob.sentiment.polarity}
 
 
+def extract_fields_from_review(json_str):
+    data = eval(json_str)
+
+    fields_dict = {
+        'product_name': data.get('product_name', ''),
+        'title': data.get('title', ''),
+        'love_text': data.get('comment_answers', {}).get('love', {}).get('value', ''),
+        'hate_text': data.get('comment_answers', {}).get('hate', {}).get('value', ''),
+        'recommendations_text': data.get('comment_answers', {}).get('recommendations', {}).get('value', ''),
+        'benefits_text': data.get('comment_answers', {}).get('benefits', {}).get('value', '')
+    }
+
+    return fields_dict
+
+
+def extract_features_wrapper(review, extract_func):
+    fields_dict = extract_fields_from_review(review)
+    for key, value in fields_dict.items():
+        fields_dict[key] = extract_func(value)
+    return fields_dict
+
+
 # def append_to_json_file_efficient(file_path, key, value):
     # # Open the JSON file in append mode
     # with open(file_path, 'r+') as file:
