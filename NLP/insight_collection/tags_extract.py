@@ -14,7 +14,10 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 import yake
+import numpy as np
 
+nlp = spacy.load("en_core_web_sm")
+sid = SentimentIntensityAnalyzer()
 text = """spaCy is an open-source software library for advanced natural language processing, written in the programming languages Python and Cython. The library is published under the MIT license and its main developers are Matthew Honnibal and Ines Montani, the founders of the software company Explosion."""
 language = "en"
 max_ngram_size = 3
@@ -22,6 +25,38 @@ deduplication_threshold = 0.9
 numOfKeywords = 8
 custom_kw_extractor = yake.KeywordExtractor(
     lan=language, n=max_ngram_size, dedupLim=deduplication_threshold, top=numOfKeywords, features=None)
+
+def remove_similar_phrases(phrases, threshold=0.4):
+    # Initialize TF-IDF vectorizer
+    vectorizer = TfidfVectorizer()
+    
+    # Fit and transform the phrases to TF-IDF vectors
+    tfidf_matrix = vectorizer.fit_transform(phrases)
+    
+    # Compute cosine similarity between all pairs of phrases
+    cosine_sim_matrix = cosine_similarity(tfidf_matrix, tfidf_matrix)
+    
+    # Find indices of similar phrases based on cosine similarity
+    similar_indices = np.where(cosine_sim_matrix > threshold)
+    
+    # Remove similar phrases from the original list
+    unique_phrases = phrases.copy()  # Create a copy of the original list
+    for i, j in zip(*similar_indices):
+        if i != j and j > i:
+            # Remove the phrase with the higher index
+            if phrases[j] in unique_phrases:
+                unique_phrases.remove(phrases[j])
+    
+    return unique_phrases
+
+def get_sentiment_score(text):
+    # Get sentiment scores for the input text using Vader lexicon
+    sentiment_scores = sid.polarity_scores(text)
+    
+    # Extract the compound score, which represents overall sentiment
+    compound_score = sentiment_scores['compound']
+    
+    return compound_score
 
 
 def extract_keywords(sentence):
@@ -31,7 +66,7 @@ def extract_keywords(sentence):
 
 
 def aspect_sentiment_analysis(text, aspect):
-    sid = SentimentIntensityAnalyzer()
+    
     sentences = nltk.sent_tokenize(text)
     aspect_sentiments = []
     for sentence in sentences:
@@ -44,8 +79,18 @@ def aspect_sentiment_analysis(text, aspect):
     else:
         return None
 
-# POS tagging
+def is_adjective(word):
+    # Process the input word using spaCy
+    doc = nlp(word)
+    
+    # Check if any token in the processed document is an adjective
+    for token in doc:
+        if token.pos_ == "ADJ":
+            return True
+    
+    return False
 
+# POS tagging
 
 def extract_tags(sentence):
     # Load English tokenizer, tagger, parser, NER, and word vectors
