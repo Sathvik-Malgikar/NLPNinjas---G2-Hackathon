@@ -83,6 +83,14 @@ def get_votes_data():
     resp.data = json.dumps(json_data)
     return resp
 
+@app.route('/keyword-inferences')
+def get_keyword_inferences():
+    resp = Response()
+    json_data = read_insights("keyword_inferences.json")
+    resp.headers["Content-Type"] = "application/json"
+    resp.data = json.dumps(json_data)
+    return resp
+
 
 @app.route('/aggregates/regionwise-rating')
 def get_regionwise_rating():
