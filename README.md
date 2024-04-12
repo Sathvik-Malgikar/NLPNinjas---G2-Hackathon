@@ -21,12 +21,26 @@ The found in /frontend can be run as development server using
 npm start
 ```
 
+## Prerequisites
+* PC With Conda installed.
+* Network connection
+* Node JS 21.2.0 (for frontend)
+
+
 ## Commands.
-To setup all required dependencies for processing reviews:
+
+To setup environment with all required dependencies for processing reviews:
 ```
-pip install -r requirements.txt
+conda create -n nlpninjas python=3.10.4 --file requirements.txt
+conda activate nlpninjas
 ```
-This will install NLP bundles needed.
+This will make a new conda environement called 'nlpninjas' and make it active.
+
+To clone this repository:
+```
+git clone https://github.com/Sathvik-Malgikar/NLPNinjas---G2-Hackathon
+cd NLPNinjas---G2-Hackathon
+```
 
 Use the following command to initiate review processing:
 ```
@@ -43,15 +57,24 @@ Now, at http://127.0.0.1:5000/ the following endpoints should be accessible:
 * /aggregates/average_secondary_metrics
 * /aggregates/votes_data
 * /aggregates/regionwise_rating
+* /keyword-inferences
+* /aggregates/aspect-keywords
+* /aggregates/polarity-keywords
+* /search/similar-docs
+* /rag/query
+* /rag/get-results
+* /filter-reviews
 
 ## How are reviews aggregated?
 
 * Country-wise star-rating
 * Finding mean of metrics given in secondary comments
 * Finding keywords for the different love and hate comments given in reviews and indexing them to query through suggest relevant reviews to user by finding similarity between query and these tags.
+* These keywords are also run through sentiment analysis. After eliminating duplicate ones, top 10 adjectives from both these keywords categories are selected. These represent the Pros & Cons of product
+* These keywords are fed to gemini API to get additional info on what the top customer expectations are.
 * Statistics corresponding to votes given in reviews
 * Getting polarity scores corresponding to the common aspects which users look for, like value-for-money, ease-of-use, performance, scalability and using this to fetch suitable reviews and display
-
+* There is a search reviews through filter mechanism where user can find and read relevant reviews by selecting some of these aspects. Based on polarity scores reviews are most suited for the tags selected are displayed.
 
 ## Links
 
