@@ -6,6 +6,7 @@ from getloveandhateinfo import get_love_and_hate_comment_keywords
 from vote_counter import extract_vote_counts, getvotesinfo
 from average_secondary_metrics import extract_secondary_comments_value, get_avg_values
 from tags_extract import extract_features, extract_features_textblob, extract_features_wrapper
+from aspect_analysis import init_sentiment_model, get_aspect_analysis_all_aspects_per_field
 
 
 def write_output(filename, data):
@@ -85,3 +86,22 @@ if __name__ == "__main__":
     write_output("extracted_features_spacy.json", review_features)
     write_output("extracted_features_textblob_polarity.json",
                  review_features_textblob)
+    aspects = [
+        "Value for money",
+        "Performance",
+        "Scalability",
+        "Interoperability",
+        "Accessibility",
+        "Reliability",
+        "Availability",
+        "Security",
+        "Compliance",
+        "Easy setup"
+    ]
+    absa_tokenizer, absa_model = init_sentiment_model()
+    asba_data = df["attributes"].apply(lambda x: get_aspect_analysis_all_aspects_per_field(
+        x, aspects, absa_tokenizer, absa_model)).tolist()
+    res = {"review_data": asba_data}
+    # Writing as txt file due Object32 Serializibility issue
+    with open("./outputs/aspect_scores_2.txt", "w") as f:
+        f.write(str(res))
