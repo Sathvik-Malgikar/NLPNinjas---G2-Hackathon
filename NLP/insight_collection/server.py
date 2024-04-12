@@ -83,6 +83,7 @@ def get_votes_data():
     resp.data = json.dumps(json_data)
     return resp
 
+# Queried from Gemini, has customer expectations, pros and cons
 @app.route('/keyword-inferences')
 def get_keyword_inferences():
     resp = Response()
