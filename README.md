@@ -10,16 +10,13 @@ This is the source code for the client review analysis & summarisation pipeline 
 Unbiased customer reviews are gathered from the above mentioned API endpoints and a database is built that contains organised information about different opinions and perspectives on our products. This is used by a query / search mechanism to help those looking to try our solutions to navigate reviews and get a picture of what we do and simplified view of various review metrics like votes & ratings.
 
 ## Implementation
-The pipeline for processing reviews is built with python using NLP modules spacY , nltk & yake.
+The pipeline for processing reviews is built with python using NLP modules spacY, bert, gemini , nltk & yake.
 Additional modules used: pandas, textblob, gensim
 Checkout requirements.txt for more info!
 
 The frontend is a single page application built with React JS.
-We have used chart JS to plot the metrics and make UI aesthetics.
-The found in /frontend can be run as development server using 
-```
-npm start
-```
+We have used react-svg-worldmap to plot the countrywise metrics, and react-chatbot-kit to power the chat with reviews UI.
+
 
 ## Prerequisites
 * PC With Conda installed.
@@ -28,25 +25,6 @@ npm start
 
 
 ## Commands.
-
-To setup environment with all required dependencies for processing reviews:
-```
-conda create -n nlpninjas python=3.10.4 --file requirements.txt
-conda activate nlpninjas
-```
-This will make a new conda environement called 'nlpninjas' and make it active.
-
-To clone this repository:
-```
-git clone https://github.com/Sathvik-Malgikar/NLPNinjas---G2-Hackathon
-cd NLPNinjas---G2-Hackathon
-```
-
-Use the following command to initiate review processing:
-```
-python process_reviews.py
-```
-This will generate several json files and CSV files with aggregate info in /insight_collection/outputs .
 
 Use this command to serve a local flask development server for serving generated info to at API endpoints:
 ```
@@ -64,6 +42,36 @@ Now, at http://127.0.0.1:5000/ the following endpoints should be accessible:
 * /rag/query
 * /rag/get-results
 * /filter-reviews
+
+Use these commands to quickly install all dependencies for a local running version of website.
+```
+cd frontend
+npm install
+```
+The /frontend can be run as development server using 
+```
+npm start
+```
+
+To setup environment with all required dependencies for processing reviews:
+```
+conda create -n nlpninjas python=3.10.4 --file requirements.txt
+conda activate nlpninjas
+```
+This will make a new conda environement called 'nlpninjas' and make it active.
+
+To clone this repository:
+```
+git clone https://github.com/Sathvik-Malgikar/NLPNinjas---G2-Hackathon
+cd NLPNinjas---G2-Hackathon
+```
+
+
+Use the following command to initiate review processing:
+```
+python process_reviews.py
+```
+This will generate several json files and CSV files with aggregate info in /insight_collection/outputs .
 
 ## How are reviews aggregated?
 
@@ -86,9 +94,9 @@ Some useful links that might help you:
 ## Source Code sitemap
 ```
 /NLP/data_collection                Contains notebook used to parse through API and scrape all the reviews, store them into a CSV (reviews.csv) for further processing
-/insight_collection           Contains individual parts responsible for different metrics and aggregate analysis (average secondary comments metrics , keywords , regionwise ratings,etc)
-process_reviews.py           This is the mainfile that reads reviews.csv and uses above mentioned review components then dumps all generated results into several json files in /insight_collection/outputs
-/insight_collection/outputs   Contains all the insights gathered from the processing to be used by flask backend to serve responses to users
+/NLP/insight_collection           Contains individual parts responsible for different metrics and aggregate analysis (average secondary comments metrics , keywords , regionwise ratings,etc)
+/NLP/insight_collection/process_reviews.py           This is the mainfile that reads reviews.csv and uses above mentioned review components then dumps all generated results into several json files in /insight_collection/outputs
+NLP/insight_collection/outputs   Contains all the insights gathered from the processing to be used by flask backend to serve responses to users
 /frontend                    Contains the Web UI & charts Single Page Application built using React JS.
 server.py                    Contains python flask code responsible for routing and backend logic 
 requirements.txt             Contains names and versions of different python modules and packages used.  

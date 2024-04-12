@@ -9,9 +9,9 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 from flask_cors import CORS
 from queue import Queue
 import asyncio
-from filter_mechanism import get_relevant_reviews
-from rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
-from aspect_analysis import get_top_aspect_based_reviews
+from NLP.insight_collection.filter_mechanism import get_relevant_reviews
+from NLP.insight_collection.rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
+from NLP.insight_collection.aspect_analysis import get_top_aspect_based_reviews
 kaggle_api = KaggleApi()
 try:
     kaggle_api.authenticate()
@@ -20,7 +20,7 @@ except Exception as e:
 
 
 def read_insights(filename):
-    with open("./outputs/" + filename, 'r') as file:
+    with open("./NLP/insight_collection/outputs/" + filename, 'r') as file:
         data = json.load(file)
     return data
 
@@ -45,7 +45,7 @@ def replace_line(file_path, line_number, new_string):
 
 
 def execute_kaggle_notebook(queue):
-    kaggle_api.kernels_push_cli("./kaggle_notebooks")
+    kaggle_api.kernels_push_cli("./NLP/insight_collection/kaggle_notebooks")
     while True:
         status = kaggle_api.kernel_status("hemabhushan", "rag-gemma-2")
         if status['status'] == 'complete':
