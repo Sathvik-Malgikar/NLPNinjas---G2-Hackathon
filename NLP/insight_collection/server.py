@@ -8,6 +8,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 from flask_cors import CORS
 from queue import Queue
 import asyncio
+from filter_mechanism import get_relevant_reviews
 from rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
 
 kaggle_api = KaggleApi()
@@ -170,6 +171,28 @@ def get_rag_prompt_results():
         resp.data = json.dumps(data)
     return resp
 
+@app.route('/filter-reviews', methods=['GET'])
+def get_data():
+    # Read query parameters
+    f1 = request.args.get('f1')
+    f2 = request.args.get('f2')
+    f3 = request.args.get('f3')
+    f4 = request.args.get('f4')
+    f5 = request.args.get('f5')
+    f6 = request.args.get('f6')
+    f7 = request.args.get('f7')
+    f8= request.args.get('f8')
+    f9 = request.args.get('f9')
+    f10 = request.args.get('f10')
+    num_reviews = request.args.get('num_reviews')
+    
+    filtermask = list(map(bool,[f1,f2,f3,f4,f5,f6,f7,f8,f9,f10]))
+    if not any(filtermask) or not num_reviews:
+        return 'Error: Missing query parameters', 400
+    
+    rev_ids = get_relevant_reviews(filtermask)
+    
+    return rev_ids, 200
 
 # main driver function
 if __name__ == '__main__':
