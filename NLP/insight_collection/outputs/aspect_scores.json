@@ -1,0 +1,122 @@
+[
+    {
+        "review_id": "some id",
+        "scores": {
+            "Value for money": 0,
+            "Performance": 0,
+            "Scalability": 1,
+            "Interoperability": 0,
+            "Accessibility": 0,
+            "Reliablity": 0,
+            "Availability": 0,
+            "Security": 0,
+            "Compliance": 0,
+            "Easy setup": 0
+        }
+    },
+    {
+        "review_id": "some id2",
+        "scores": {
+            "Value for money": 0,
+            "Performance": 0,
+            "Scalability": 2,
+            "Interoperability": 0,
+            "Accessibility": 0,
+            "Reliablity": 0,
+            "Availability": 0,
+            "Security": 0,
+            "Compliance": 0,
+            "Easy setup": 0
+        }
+    },
+    {
+        "review_id": "some id3",
+        "scores": {
+            "Value for money": 0,
+            "Performance": 0,
+            "Scalability": 3,
+            "Interoperability": 0,
+            "Accessibility": 0,
+            "Reliablity": 0,
+            "Availability": 0,
+            "Security": 0,
+            "Compliance": 0,
+            "Easy setup": 0
+        }
+    },
+    {
+        "review_id": "some id4",
+        "scores": {
+            "Value for money": 0,
+            "Performance": 0,
+            "Scalability": 4,
+            "Interoperability": 0,
+            "Accessibility": 0,
+            "Reliablity": 0,
+            "Availability": 0,
+            "Security": 0,
+            "Compliance": 0,
+            "Easy setup": 0
+        }
+    },
+    {
+        "review_id": "some weird id",
+        "scores": {
+            "Value for money": 0,
+            "Performance": 0,
+            "Scalability": 1,
+            "Interoperability": 0,
+            "Accessibility": 1000,
+            "Reliablity": 0,
+            "Availability": 0,
+            "Security": 0,
+            "Compliance": 0,
+            "Easy setup": 0
+        }
+    },
+    {
+        "review_id": "some id2",
+        "scores": {
+            "Value for money": 0,
+            "Performance": 0,
+            "Scalability": 2,
+            "Interoperability": 0,
+            "Accessibility": 0,
+            "Reliablity": 0,
+            "Availability": 0,
+            "Security": 0,
+            "Compliance": 0,
+            "Easy setup": 0
+        }
+    },
+    {
+        "review_id": "some id3",
+        "scores": {
+            "Value for money": 0,
+            "Performance": 0,
+            "Scalability": 3,
+            "Interoperability": 0,
+            "Accessibility": 0,
+            "Reliablity": 0,
+            "Availability": 0,
+            "Security": 0,
+            "Compliance": 0,
+            "Easy setup": 0
+        }
+    },
+    {
+        "review_id": "some id4",
+        "scores": {
+            "Value for money": 0,
+            "Performance": 0,
+            "Scalability": 4,
+            "Interoperability": 0,
+            "Accessibility": 0,
+            "Reliablity": 0,
+            "Availability": 0,
+            "Security": 0,
+            "Compliance": 0,
+            "Easy setup": 0
+        }
+    }
+]
