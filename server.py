@@ -9,6 +9,7 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 from flask_cors import CORS
 from queue import Queue
 import asyncio
+from NLP.data_collection.review_api import get_response_from_endpoint
 from NLP.insight_collection.filter_mechanism import get_relevant_reviews
 from NLP.insight_collection.rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
 from NLP.insight_collection.aspect_analysis import get_top_aspect_based_reviews
@@ -186,6 +187,14 @@ def get_aspect_filtered_reviews():
     resp.data = json.dumps(filtered_reviews)
     return resp
 
+
+@app.route('/review-by-id', methods=["GET"])
+def get_review_by_id():
+    rev_id = request.args.get("id")
+    
+    if not rev_id:
+        return 'Error: Missing query parameters', 400
+    return get_response_from_endpoint("https://data.g2.com/api/v1/survey-responses/" + rev_id)
 
 @app.route('/filter-reviews-2', methods=['GET'])
 def get_data():
