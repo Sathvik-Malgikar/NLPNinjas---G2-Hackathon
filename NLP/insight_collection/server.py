@@ -106,7 +106,7 @@ def get_regionwise_rating():
 @app.route('/aggregates/aspect-keywords')
 def get_aspect_keywords():
     resp = Response()
-    json_data = read_insights("extracted_features_spacy.json")
+    json_data = read_insights("/extracted_features_spacy.json")
     resp.headers["Content-Type"] = "application/json"
     resp.data = json.dumps(json_data)
     return resp
@@ -115,7 +115,7 @@ def get_aspect_keywords():
 @app.route('/aggregates/polarity-keywords')
 def get_polarity_keywords():
     resp = Response()
-    json_data = read_insights("extracted_features_textblob_polarity.json")
+    json_data = read_insights("/extracted_features_textblob_polarity.json")
     resp.headers["Content-Type"] = "application/json"
     resp.data = json.dumps(json_data)
     return resp
