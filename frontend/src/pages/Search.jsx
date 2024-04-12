@@ -141,38 +141,21 @@ const Search = () => {
       Object.keys(res['data']).map((e)=>{
         if (e !== "null"){
           res['data'][e].map(review=>{
-
             axios.get(BACKEND_URL+`/review-by-id?id=${review['id']}`)
-            .then((res)=>{
-              temp.push(res['data'])
+            .then((resp)=>{
+              setFilteredReviews((prev)=>{return [...prev, resp['data']['data']]})
+              // temp.push(resp['data']['data'])
+              // console.log(resp['data']['data'])
             })
           })
         }
       })
       setFilteredReviews(temp)
 
-      
-
-      // console.log(temp)
-
       // console.log(filteredReviews)
     })
 
   }, [filterArray])
-
-  // useEffect(()=>{
-
-  //   temp = {}
-  //   filteredReviews.map((review)=>{
-  //     axios.get(BACKEND_URL+`/review-by-id?id=${review['id']}`)
-  //     .then((res)=>{
-  //       temp.push(res['data'])
-  //     })
-  //   })
-
-  //   set
-
-  // }, [filteredReviews])
 
   return (
     <main className='flex flex-col items-center gap-y-24'>
@@ -198,7 +181,7 @@ const Search = () => {
 
       <div className='w-full flex flex-col gap-16 items-center'>
         <h1 className='barlow-medium text-3xl'>What customers are looking for</h1>
-        <div className='w-2/3 grid grid-cols-3 place-items-center gap-8 grid-flow-row'>
+        <div className='w-2/3 grid grid-cols-3 place-items-start gap-8 grid-flow-row'>
           {Object.keys(keywordInferences).length != 0
             && keywordInferences['customer_expectations'].map((e, i)=>{
             return (
@@ -310,11 +293,14 @@ const Search = () => {
           })}
         </div>
       
-        {filteredReviews.map((review, i)=>{
-          return (
-            <ReviewBox key={i} review={review}></ReviewBox>
-          )
-        })}
+
+        <div className='w-[90%]'>
+          {filteredReviews && filteredReviews.map((review, i)=>{
+            return (
+              <ReviewBox review={review} key={i} ></ReviewBox>
+            )
+          })}
+        </div>
 
       </div>
 

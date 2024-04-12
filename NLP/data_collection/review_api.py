@@ -24,17 +24,17 @@ def get_response_from_endpoint(url, headers=None):
         if response.status_code == 200:
             return response.json()  # Return the JSON response
         else:
-            return None  # Return None if request was not successful
+            return None, 400  # Return None if request was not successful
     except requests.exceptions.RequestException as e:
         print("Error:", e)
-        return None
+        return None, 400
 
 # Example usage:
 # has to be a GET request
 
 import os
 
-API_KEY = os.environ.get("GOOGLE_API_KEY")
+API_KEY = "1da6d9512ad00fc394bd04234bc7358dc9b85d96fa0c56281f710dc9abcef7e5"
 
 custom_headers = {
     "Authorization": f"Token token={API_KEY}",
