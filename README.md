@@ -17,6 +17,7 @@ Checkout requirements.txt for more info!
 The frontend is a single page application built with React JS.
 We have used react-svg-worldmap to plot the countrywise metrics, and react-chatbot-kit to power the chat with reviews UI.
 
+![Architecture / Workflow](Arch.png?raw=true "Architecture / Workflow")
 
 ## Prerequisites
 * PC With Conda installed.
