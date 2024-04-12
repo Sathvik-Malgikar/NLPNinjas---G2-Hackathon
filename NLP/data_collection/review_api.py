@@ -12,6 +12,12 @@ def write_json_to_file(data, file_path):
         json.dump(data, file, indent=4)
 
 def get_response_from_endpoint(url, headers=None):
+    if headers ==None:
+        headers = {
+    "Authorization": f"Token token={API_KEY}",
+    "Content Type": "application/vnd.api+json"
+}
+
     try:
         response = requests.get(url, headers=headers)
         # Check if the request was successful (status code 200)
