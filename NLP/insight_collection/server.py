@@ -1,3 +1,4 @@
+import pickle
 import re
 import threading
 import time
@@ -10,7 +11,7 @@ from queue import Queue
 import asyncio
 from filter_mechanism import get_relevant_reviews
 from rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
-
+from aspect_analysis import get_top_aspect_based_reviews
 kaggle_api = KaggleApi()
 try:
     kaggle_api.authenticate()
@@ -171,7 +172,23 @@ def get_rag_prompt_results():
         resp.data = json.dumps(data)
     return resp
 
-@app.route('/filter-reviews', methods=['GET'])
+
+@app.route('/filter-reviews', methods=["GET"])
+def get_aspect_filtered_reviews():
+    aspects = [request.args.get(f'f{i+1}') for i in range(10)]
+
+    with open("./outputs/aspect_scores_2.json", "r") as f:
+        aspect_file = json.loads(f.read())
+
+    filtered_reviews = get_top_aspect_based_reviews(
+        aspect_file["review_data"], aspects)
+
+    resp = Response()
+    resp.data = json.dumps(filtered_reviews)
+    return resp
+
+
+@app.route('/filter-reviews-2', methods=['GET'])
 def get_data():
     # Read query parameters
     f1 = request.args.get('f1')
@@ -181,18 +198,19 @@ def get_data():
     f5 = request.args.get('f5')
     f6 = request.args.get('f6')
     f7 = request.args.get('f7')
-    f8= request.args.get('f8')
+    f8 = request.args.get('f8')
     f9 = request.args.get('f9')
     f10 = request.args.get('f10')
     num_reviews = request.args.get('num_reviews')
-    
-    filtermask = list(map(bool,[f1,f2,f3,f4,f5,f6,f7,f8,f9,f10]))
+
+    filtermask = list(map(bool, [f1, f2, f3, f4, f5, f6, f7, f8, f9, f10]))
     if not any(filtermask) or not num_reviews:
         return 'Error: Missing query parameters', 400
-    
+
     rev_ids = get_relevant_reviews(filtermask)
-    
+
     return rev_ids, 200
+
 
 # main driver function
 if __name__ == '__main__':

@@ -17,7 +17,7 @@ def init_sentiment_model():
 #                           tokenizer=sentiment_model_path)
 
 
-def get_aspect_analysis(sentence, aspect, tokenizer, model):
+def get_aspect_analysis_sentence(sentence, aspect, tokenizer, model):
     inputs = tokenizer(
         f"[CLS] {sentence} [SEP] {aspect} [SEP]", return_tensors="pt")
     outputs = model(**inputs)
@@ -30,3 +30,27 @@ def get_aspect_analysis(sentence, aspect, tokenizer, model):
         res[label] = prob
 
     return res
+
+
+def get_aspect_analysis_all_aspects(review, aspects):
+    res = {}
+    for aspect in aspects:
+        pass
+
+
+def get_top_aspect_based_reviews(json_list, aspects):
+    top_reviews = {aspect: [] for aspect in aspects}
+    max_positive_scores = {aspect: -1 for aspect in aspects}
+
+    for review in json_list:
+        for aspect in aspects:
+            for field in ['title', 'love_text', 'hate_text', 'recommendations_text', 'benefits_text']:
+                if aspect in review[field]:
+                    positive_score = review[field][aspect]["positive"]
+                    if positive_score > max_positive_scores[aspect]:
+                        max_positive_scores[aspect] = positive_score
+                        top_reviews[aspect].insert(0, review)
+                    elif positive_score == max_positive_scores[aspect]:
+                        top_reviews[aspect].append(review)
+
+    return top_reviews
