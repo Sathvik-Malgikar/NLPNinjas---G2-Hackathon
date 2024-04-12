@@ -140,14 +140,39 @@ const Search = () => {
 
       Object.keys(res['data']).map((e)=>{
         if (e !== "null"){
-          res['data'][e].map(review=>{temp.push(review)})
+          res['data'][e].map(review=>{
+
+            axios.get(BACKEND_URL+`/review-by-id?id=${review['id']}`)
+            .then((res)=>{
+              temp.push(res['data'])
+            })
+          })
         }
       })
       setFilteredReviews(temp)
-      console.log(filteredReviews)
+
+      
+
+      // console.log(temp)
+
+      // console.log(filteredReviews)
     })
 
   }, [filterArray])
+
+  // useEffect(()=>{
+
+  //   temp = {}
+  //   filteredReviews.map((review)=>{
+  //     axios.get(BACKEND_URL+`/review-by-id?id=${review['id']}`)
+  //     .then((res)=>{
+  //       temp.push(res['data'])
+  //     })
+  //   })
+
+  //   set
+
+  // }, [filteredReviews])
 
   return (
     <main className='flex flex-col items-center gap-y-24'>
@@ -287,7 +312,7 @@ const Search = () => {
       
         {filteredReviews.map((review, i)=>{
           return (
-            <ReviewBox key={i} review={reviewMapper[review['id']]}></ReviewBox>
+            <ReviewBox key={i} review={review}></ReviewBox>
           )
         })}
 

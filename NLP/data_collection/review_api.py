@@ -53,33 +53,34 @@ def process_one_batch(response):
         
     write_json_to_file(results,"results.json")
 
-import time
+if __name__ =="__main__":
+    import time
 
-url = "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=1&page%5Bsize%5D=10" # param id can be added optionally
+    url = "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=1&page%5Bsize%5D=10" # param id can be added optionally
 
-empty_results = {
-    "average_star_rating": 0,
-    "num_reviews": 0
-}
+    empty_results = {
+        "average_star_rating": 0,
+        "num_reviews": 0
+    }
 
-write_json_to_file(empty_results,"results.json")
+    write_json_to_file(empty_results,"results.json")
 
-while True:
-    t1 = time.time()
-    response = get_response_from_endpoint(url, headers=custom_headers)
-    if response:
-        write_json_to_file(response,"response.json")
-        process_one_batch(response)
-        t2 = time.time()
-        print(f"Processed one batch in {t2-t1} seconds")
-        if "next" in response["links"]:
+    while True:
+        t1 = time.time()
+        response = get_response_from_endpoint(url, headers=custom_headers)
+        if response:
+            write_json_to_file(response,"response.json")
+            process_one_batch(response)
+            t2 = time.time()
+            print(f"Processed one batch in {t2-t1} seconds")
+            if "next" in response["links"]:
+                
+                url = response["links"]["next"]
+            else:
+                break
             
-            url = response["links"]["next"]
         else:
-            break
-        
-    else:
-        print("Failed to get response from the endpoint.")
-        
-print("Processing reviews completed, reached end of linked list")
+            print("Failed to get response from the endpoint.")
+            
+    print("Processing reviews completed, reached end of linked list")
 

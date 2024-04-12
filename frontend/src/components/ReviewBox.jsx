@@ -3,7 +3,7 @@ import React from 'react'
 const ReviewBox = ({review}) => {
   // console.log(review)
   return (
-    <div>sdfa</div>
+    <div>{review['title']}</div>
   )
 }
 
