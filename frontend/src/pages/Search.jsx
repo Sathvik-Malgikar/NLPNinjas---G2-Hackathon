@@ -57,7 +57,6 @@ const Search = () => {
     // review data
     axios.get(BACKEND_URL+'/aggregates/aspect-keywords')
     .then((res)=>{
-      console.log(res['data']['review_data'][0])
       setReviewData(res['data']['review_data'])
     })
     .catch(()=>{
@@ -131,7 +130,8 @@ const Search = () => {
         // frameborder="0"
         ></iframe>
       </div> */}
-      <div>
+      <div className='w-full flex flex-col gap-8 items-center'>
+        <h1 className='barlow-medium text-2xl'>Chat with reviews directly through Monty!</h1>
         <CustomChatBot></CustomChatBot>
       </div>
 
