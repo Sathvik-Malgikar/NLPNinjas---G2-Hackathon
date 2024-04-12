@@ -168,7 +168,7 @@ def extract_review_metadata(review):
 
 
 def init_sentence_transformer_with_db():
-    df = pd.read_csv('./outputs/reviews.csv')
+    df = pd.read_csv('./NLP/insight_collection/outputs/reviews.csv')
     embedding_function = SentenceTransformerEmbeddings(
         model_name="all-MiniLM-L6-v2")
 

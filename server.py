@@ -176,7 +176,7 @@ def get_rag_prompt_results():
 def get_aspect_filtered_reviews():
     aspects = [request.args.get(f'f{i+1}') for i in range(10)]
 
-    with open("./outputs/aspect_scores_2.json", "r") as f:
+    with open("./NLP/insight_collection/outputs/aspect_scores_2.json", "r") as f:
         aspect_file = json.loads(f.read())
 
     filtered_reviews = get_top_aspect_based_reviews(
