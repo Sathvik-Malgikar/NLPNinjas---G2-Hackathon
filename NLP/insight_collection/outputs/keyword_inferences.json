@@ -1,12 +1,38 @@
-[
-    "Intelligent",
-    "Independent",
-    "Determined",
-    "Imaginative",
-    "Humorous",
-    "Adaptable",
-    "Ambitious",
-    "Tolerant",
-    "Compassionate",
-    "Curious"
-]
+{
+    "customer_expectations": [
+        "Intelligent",
+        "Independent",
+        "Determined",
+        "Imaginative",
+        "Humorous",
+        "Adaptable",
+        "Ambitious",
+        "Tolerant",
+        "Compassionate",
+        "Curious"
+    ],
+    "pros": [
+        "best support good",
+        "best customer success",
+        "efficient effective easy",
+        "love their fantastic",
+        "eager help succeed",
+        "love the friendly",
+        "super pleasant",
+        "excited ensure succeed",
+        "easy setup best",
+        "benefit was great"
+    ],
+    "cons": [
+        "bad data tough",
+        "really negative far",
+        "reviews rejected vague",
+        "bad review competitor",
+        "Crowd weakest link",
+        "rejected able verify",
+        "wrong employee count",
+        "ended seems unfair",
+        "failures multiple times",
+        "bit frustrating"
+    ]
+}

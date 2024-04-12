@@ -4,6 +4,8 @@ import google.generativeai as genai
 import json
 import pandas as pd
 
+from tags_extract import is_adjective,get_sentiment_score,remove_similar_phrases
+
 def write_output(filename, data):
     with open("./outputs/"+filename, 'w') as file:
         json.dump(data, file, indent=4)
@@ -67,18 +69,37 @@ def merge_keywords_set():
         combined_set[r_id] = {"love_keywords": temp_l_words, "hate_keywords": temp_h_words}
     
     write_output("combined_keywords.json",combined_set)
-    
-if __name__ == "__main__":
-    # Or use `os.getenv('GOOGLE_API_KEY')` to fetch an environment variable.
-    GOOGLE_API_KEY="AIzaSyAZ0zVfwbUmzGls495gZWjutmDcnh26uOw"
-    genai.configure(api_key=GOOGLE_API_KEY)
 
-    model = genai.GenerativeModel('gemini-pro')
-
-    merge_keywords_set()
-    remove_weights()
+def get_pros_and_cons():
+    keywordsdata = read_json_from_file("./outputs/combined_keywords.json")
+    d={}
+    for key in keywordsdata :
+        for ele in keywordsdata[key]["love_keywords"]:
+            if ele not in d and is_adjective(ele):
+                d[ele]=get_sentiment_score(ele)
+            
     
-        
+    kv_pairs = list(d.items())
+    kv_pairs.sort(reverse=True,key=lambda a:a[1])
+    pros =  list(map(lambda a:a[0] , kv_pairs ))
+    pros = remove_similar_phrases(pros)
+    pros = pros[:10]
+    print(pros)
+    d={}
+    for key in keywordsdata :
+        for ele in keywordsdata[key]["hate_keywords"]:
+            if ele not in d and is_adjective(ele):
+                d[ele]=get_sentiment_score(ele)
+    
+    kv_pairs = list(d.items())
+    kv_pairs.sort(key=lambda a:a[1])
+    cons = list(map(lambda a:a[0] , kv_pairs))
+    cons = remove_similar_phrases(cons)
+    cons = cons[:10]
+    print(cons)
+    return pros , cons
+
+def get_customer_expectations():
     keywordsdata = read_json_from_file("./outputs/combined_keywords.json")
 
     query1=f'''Following are the keywords extracted from a set of reviews of a particular product. Analyze these and tell me top 10 things the customers are looking for in this class of product. '______' represents the start and end of keywords data
@@ -105,8 +126,37 @@ if __name__ == "__main__":
 
     # Find all matches of the pattern in the paragraph
     customer_expectations = re.findall(pattern, response.text)
+    return customer_expectations    
 
+if __name__ == "__main__":
+    # Or use `os.getenv('GOOGLE_API_KEY')` to fetch an environment variable.
+    GOOGLE_API_KEY="AIzaSyAZ0zVfwbUmzGls495gZWjutmDcnh26uOw"
+    genai.configure(api_key=GOOGLE_API_KEY)
+
+    model = genai.GenerativeModel('gemini-pro')
+
+    merge_keywords_set()
+    remove_weights()
+    pros , cons = get_pros_and_cons()
+    
+    # TODO FIX API
+    # customer_expectations = get_customer_expectations()
+    customer_expectations = [
+    "Intelligent",
+    "Independent",
+    "Determined",
+    "Imaginative",
+    "Humorous",
+    "Adaptable",
+    "Ambitious",
+    "Tolerant",
+    "Compassionate",
+    "Curious"
+]  
     print(customer_expectations)
+    data= { "customer_expectations" : customer_expectations,
+           "pros" : pros,
+           "cons" : cons
+           }
 
-
-    write_output("keyword_inferences.json" , customer_expectations)
+    write_output("keyword_inferences.json" , data)
