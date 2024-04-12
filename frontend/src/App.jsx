@@ -3,10 +3,10 @@ import './App.css'
 import Navbar from './components/Navbar'
 import {useNavigate} from 'react-router-dom'
 
+export const BACKEND_URL = 'http://localhost:5000/'
+
 function App() {
-
   const navigate = useNavigate();
-
   const inputHandler = (event)=>{
     if (event.keyCode == 13){
       navigate('/search')
@@ -14,7 +14,7 @@ function App() {
   }
 
   return (
-    <main className='flex flex-col gap-8 justify-center items-center min-h-screen'>
+    <main className='app-main flex flex-col gap-8 justify-center items-center min-h-screen'>
 
       <Navbar></Navbar>
 
