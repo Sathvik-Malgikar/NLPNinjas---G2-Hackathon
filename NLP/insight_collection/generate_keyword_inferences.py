@@ -27,6 +27,18 @@ def read_keywords(column_value,review_id):
         print(e)
         print("keyword extraction failed!")
 
+def expand_phrase(phrase):
+    prompt = f'''
+    Expand the below phrase to a sentence
+    === Prompt ===
+
+    Phrase: {phrase}
+
+    === Expansion ===
+    '''
+    response = model.generate_content(prompt)
+    return response.text
+
 def remove_weights():
     keywordsdata = read_json_from_file("./outputs/combined_keywords.json")
     for key in keywordsdata :
@@ -142,17 +154,17 @@ if __name__ == "__main__":
     # TODO FIX API
     # customer_expectations = get_customer_expectations()
     customer_expectations = [
-    "Intelligent",
-    "Independent",
-    "Determined",
-    "Imaginative",
-    "Humorous",
-    "Adaptable",
-    "Ambitious",
-    "Tolerant",
-    "Compassionate",
-    "Curious"
-]  
+    "Validation and Recognition",
+    "Comprehensive Showcase",
+    "User Success Leveraging",
+    "End-to-End Service",
+    "Continuous Flow of Reviews",
+    "Proactive Outreach",
+    "Automation and Quality Reviews",
+    "Previous Experience Enhancement",
+    "Integration and Features",
+    "Customer Success and Support"
+    ]
     print(customer_expectations)
     data= { "customer_expectations" : customer_expectations,
            "pros" : pros,

@@ -32,10 +32,36 @@ def get_aspect_analysis_sentence(sentence, aspect, tokenizer, model):
     return res
 
 
-def get_aspect_analysis_all_aspects(review, aspects):
+def extract_fields_from_review(json_str):
+    data = eval(json_str)
+    fields_dict = {
+        'id': data.get('slug', '').split("-")[-1],
+        'product_name': data.get('product_name', ''),
+        'title': data.get('title', ''),
+        'love_text': data.get('comment_answers', {}).get('love', {}).get('value', ''),
+        'hate_text': data.get('comment_answers', {}).get('hate', {}).get('value', ''),
+        'recommendations_text': data.get('comment_answers', {}).get('recommendations', {}).get('value', ''),
+        'benefits_text': data.get('comment_answers', {}).get('benefits', {}).get('value', '')
+    }
+
+    return fields_dict
+
+
+def get_aspect_analysis_all_aspects_per_field(review, aspects, tokenizer, model):
     res = {}
-    for aspect in aspects:
-        pass
+    # review=eval(review)
+    review_fields = extract_fields_from_review(review)
+    res["id"] = review_fields["id"]
+    res["product_name"] = review_fields["product_name"]
+
+    for review_field in review_fields.keys():
+        if review_field in ["id", "product_name"]:
+            continue
+        res[review_field] = {}
+        for aspect in aspects:
+            res[review_field][aspect] = get_aspect_analysis_sentence(
+                review_fields[review_field], aspect, tokenizer, model)
+    return res
 
 
 def get_top_aspect_based_reviews(json_list, aspects):

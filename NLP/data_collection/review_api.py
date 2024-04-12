@@ -26,7 +26,9 @@ def get_response_from_endpoint(url, headers=None):
 # Example usage:
 # has to be a GET request
 
-API_KEY = "1da6d9512ad00fc394bd04234bc7358dc9b85d96fa0c56281f710dc9abcef7e5"
+import os
+
+API_KEY = os.environ.get("GOOGLE_API_KEY")
 
 custom_headers = {
     "Authorization": f"Token token={API_KEY}",

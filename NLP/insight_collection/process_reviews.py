@@ -6,11 +6,13 @@ from getloveandhateinfo import get_love_and_hate_comment_keywords
 from vote_counter import extract_vote_counts, getvotesinfo
 from average_secondary_metrics import extract_secondary_comments_value, get_avg_values
 from tags_extract import extract_features, extract_features_textblob, extract_features_wrapper
+from aspect_analysis import init_sentiment_model, get_aspect_analysis_all_aspects_per_field
 
 
 def write_output(filename, data):
     with open("./outputs/"+filename, 'w') as file:
         json.dump(data, file, indent=4)
+
 
 def read_json_from_file(file_path):
     with open(file_path, 'r') as file:
@@ -78,9 +80,28 @@ if __name__ == "__main__":
         lambda x: extract_features_wrapper(x, extract_features))
     extracted_features_textblob_from_review = df['attributes'].apply(
         lambda x: extract_features_wrapper(x, extract_features_textblob))
-    # review_features = {"review_data": extracted_features_from_review.tolist()}
+    review_features = {"review_data": extracted_features_from_review.tolist()}
     review_features_textblob = {
         "review_data": extracted_features_textblob_from_review.tolist()}
-   # write_output("extracted_features_spacy.json", review_features)
+    write_output("extracted_features_spacy.json", review_features)
     write_output("extracted_features_textblob_polarity.json",
                  review_features_textblob)
+    aspects = [
+        "Value for money",
+        "Performance",
+        "Scalability",
+        "Interoperability",
+        "Accessibility",
+        "Reliability",
+        "Availability",
+        "Security",
+        "Compliance",
+        "Easy setup"
+    ]
+    absa_tokenizer, absa_model = init_sentiment_model()
+    asba_data = df["attributes"].apply(lambda x: get_aspect_analysis_all_aspects_per_field(
+        x, aspects, absa_tokenizer, absa_model)).tolist()
+    res = {"review_data": asba_data}
+    # Writing as txt file due Object32 Serializibility issue
+    with open("./outputs/aspect_scores_2.txt", "w") as f:
+        f.write(str(res))

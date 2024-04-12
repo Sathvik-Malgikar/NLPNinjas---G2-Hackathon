@@ -91,11 +91,11 @@ elastic_index_name = "gemma-rag"
 # In[10]:
 
 
-url = "https://raw.githubusercontent.com/elastic/elasticsearch-labs/main/datasets/workplace-documents.json"
+#url = "https://raw.githubusercontent.com/elastic/elasticsearch-labs/main/datasets/workplace-documents.json"
 
-response = urlopen(url)
+#response = urlopen(url)
 
-workplace_docs = json.loads(response.read())
+#workplace_docs = json.loads(response.read())
 
 
 # In[11]:
