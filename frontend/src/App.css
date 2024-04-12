@@ -1,0 +1,13 @@
+.app-main {
+  background-image: url('./assets/dashboard-shapes.png');
+  /* background-size: auto; */
+  background-size: 150%;
+  background-position: 40% 0%;
+  background-color: #fef5f4;
+  /* background-repeat: none; */
+}
+
+
+.g2-logo {
+  scale: 0.2;
+}
