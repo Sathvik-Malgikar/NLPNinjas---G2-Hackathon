@@ -11,14 +11,18 @@ def write_json_to_file(data, file_path):
 
 from heapq import heappush,heappop
 
+
+filter_names = ["Value for money","Performance","Scalability","Interoperability","Accessibility","Reliablity","Availability","Security","Compliance","Easy setup"]
+
 def get_relevant_reviews(filters , num_reviews =3 ):
+    active_filters =  [ f for i,f in enumerate(filter_names) if filters[i]]
     data = read_json_from_file("aspect_scores.json")
-    n = len(filters)
+    n = len(active_filters)
     reviews=[]
     ans=[]
     def get_score(obj):
         total=0
-        for filt in filters:
+        for filt in active_filters:
             total+=obj[filt]
         return total /n
     for ele in data:
@@ -34,4 +38,4 @@ def get_relevant_reviews(filters , num_reviews =3 ):
 
 
 if __name__=="__main__":
-    print(get_relevant_reviews(["Scalability","Accessibility"]))
+    print(get_relevant_reviews([False , False , True , False , True,False , False , False , False ,False ]))
