@@ -26,19 +26,20 @@ numOfKeywords = 8
 custom_kw_extractor = yake.KeywordExtractor(
     lan=language, n=max_ngram_size, dedupLim=deduplication_threshold, top=numOfKeywords, features=None)
 
+
 def remove_similar_phrases(phrases, threshold=0.4):
     # Initialize TF-IDF vectorizer
     vectorizer = TfidfVectorizer()
-    
+
     # Fit and transform the phrases to TF-IDF vectors
     tfidf_matrix = vectorizer.fit_transform(phrases)
-    
+
     # Compute cosine similarity between all pairs of phrases
     cosine_sim_matrix = cosine_similarity(tfidf_matrix, tfidf_matrix)
-    
+
     # Find indices of similar phrases based on cosine similarity
     similar_indices = np.where(cosine_sim_matrix > threshold)
-    
+
     # Remove similar phrases from the original list
     unique_phrases = phrases.copy()  # Create a copy of the original list
     for i, j in zip(*similar_indices):
@@ -46,16 +47,17 @@ def remove_similar_phrases(phrases, threshold=0.4):
             # Remove the phrase with the higher index
             if phrases[j] in unique_phrases:
                 unique_phrases.remove(phrases[j])
-    
+
     return unique_phrases
+
 
 def get_sentiment_score(text):
     # Get sentiment scores for the input text using Vader lexicon
     sentiment_scores = sid.polarity_scores(text)
-    
+
     # Extract the compound score, which represents overall sentiment
     compound_score = sentiment_scores['compound']
-    
+
     return compound_score
 
 
@@ -66,7 +68,7 @@ def extract_keywords(sentence):
 
 
 def aspect_sentiment_analysis(text, aspect):
-    
+
     sentences = nltk.sent_tokenize(text)
     aspect_sentiments = []
     for sentence in sentences:
@@ -79,18 +81,20 @@ def aspect_sentiment_analysis(text, aspect):
     else:
         return None
 
+
 def is_adjective(word):
     # Process the input word using spaCy
     doc = nlp(word)
-    
+
     # Check if any token in the processed document is an adjective
     for token in doc:
         if token.pos_ == "ADJ":
             return True
-    
+
     return False
 
 # POS tagging
+
 
 def extract_tags(sentence):
     # Load English tokenizer, tagger, parser, NER, and word vectors
@@ -219,6 +223,7 @@ def extract_fields_from_review(json_str):
     data = eval(json_str)
 
     fields_dict = {
+        'id': data.get('slug').split('-')[-1],
         'product_name': data.get('product_name', ''),
         'title': data.get('title', ''),
         'love_text': data.get('comment_answers', {}).get('love', {}).get('value', ''),

@@ -9,9 +9,11 @@ from kaggle.api.kaggle_api_extended import KaggleApi
 from flask_cors import CORS
 from queue import Queue
 import asyncio
+import pandas as pd
 from NLP.insight_collection.filter_mechanism import get_relevant_reviews
 from NLP.insight_collection.rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
 from NLP.insight_collection.aspect_analysis import get_top_aspect_based_reviews
+from NLP.insight_collection.rag import extract_fields_from_review
 kaggle_api = KaggleApi()
 try:
     kaggle_api.authenticate()
@@ -85,6 +87,7 @@ def get_votes_data():
     resp.data = json.dumps(json_data)
     return resp
 
+
 @app.route('/keyword-inferences')
 def get_keyword_inferences():
     resp = Response()
@@ -141,7 +144,8 @@ def query_rag_gemma():
     request_data = request.get_json()
     query = request_data["query"]
     new_content = f"""query='{query}'"""
-    replace_line("./kaggle_notebooks/rag_gemma.py", 351, new_content)
+    replace_line(
+        "./NLP/insight_collection/kaggle_notebooks/rag_gemma.py", 351, new_content)
     thread = threading.Thread(target=execute_kaggle_notebook, args=(queue,))
     thread.start()
     return jsonify({'message': 'Data processing started'}), 202
@@ -176,14 +180,22 @@ def get_rag_prompt_results():
 def get_aspect_filtered_reviews():
     aspects = [request.args.get(f'f{i+1}') for i in range(10)]
 
-    with open("./outputs/aspect_scores_2.json", "r") as f:
+    with open("./NLP/insight_collection/outputs/aspect_scores_2.json", "r") as f:
         aspect_file = json.loads(f.read())
 
     filtered_reviews = get_top_aspect_based_reviews(
         aspect_file["review_data"], aspects)
-
+    reviews = pd.read_csv("./NLP/insight_collection/outputs/reviews.csv")
+    filtered_reviews_new = reviews["attributes"].apply(
+        extract_fields_from_review).tolist()
+    ids = []
+    for key, value in filtered_reviews.items():
+        ids.extend([x["id"] for x in value])
+    # print(type(filtered_reviews_new[0]))
+    filtered_reviews_new = list(
+        filter(lambda x: x["id"] in ids, filtered_reviews_new))
     resp = Response()
-    resp.data = json.dumps(filtered_reviews)
+    resp.data = json.dumps(filtered_reviews_new)
     return resp
 
 

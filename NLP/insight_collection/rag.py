@@ -168,7 +168,7 @@ def extract_review_metadata(review):
 
 
 def init_sentence_transformer_with_db():
-    df = pd.read_csv('./outputs/reviews.csv')
+    df = pd.read_csv('./NLP/insight_collection/outputs/reviews.csv')
     embedding_function = SentenceTransformerEmbeddings(
         model_name="all-MiniLM-L6-v2")
 
@@ -194,4 +194,18 @@ def retrieve_similar_docs_page_content(docs):
     return [x.page_content for x in docs]
 
 
+def extract_fields_from_review(json_str):
+    data = eval(json_str)
+
+    fields_dict = {
+        'id': data.get('slug').split('-')[-1],
+        'product_name': data.get('product_name', ''),
+        'title': data.get('title', ''),
+        'love_text': data.get('comment_answers', {}).get('love', {}).get('value', ''),
+        'hate_text': data.get('comment_answers', {}).get('hate', {}).get('value', ''),
+        'recommendations_text': data.get('comment_answers', {}).get('recommendations', {}).get('value', ''),
+        'benefits_text': data.get('comment_answers', {}).get('benefits', {}).get('value', '')
+    }
+
+    return fields_dict
 # print(get_similar_docs("is G2 useful?", init_sentence_transformer_with_db()))
