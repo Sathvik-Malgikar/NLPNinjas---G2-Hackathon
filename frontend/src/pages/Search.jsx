@@ -272,14 +272,15 @@ const Search = () => {
           <div className='h-full min-h-[500px] border-solid border-[1px] border-black p-4'>
             <CustomChatBot className='border-solid border-[1px] border-black'></CustomChatBot>
           </div>
-          <iframe
-            src="https://www.chatbase.co/chatbot-iframe/D_-F0yu8p0EwL9XIUNmgB"
+
+            <iframe
+            src="https://www.chatbase.co/chatbot-iframe/WhhrwRiF588Tble1oqnhI"
             title="Chatbot"
             width="100%"
             // style="height: 100%; min-height: 700px"
             className='h-full min-h-[500px] border-solid border-[1px] border-black p-4'
-            frameborder="0"
             ></iframe>
+
 
         </div>
       </div>
