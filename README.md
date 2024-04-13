@@ -12,7 +12,6 @@ Unbiased customer reviews are gathered from the above mentioned API endpoints an
 ## Implementation
 The pipeline for processing reviews is built with python using NLP modules spacY, bert, gemini , nltk & yake.
 Additional modules used: pandas, textblob, gensim
-Checkout requirements.txt for more info!
 
 The frontend is a single page application built with Vite + React JS.
 We have used react-svg-worldmap to plot the countrywise metrics, and react-chatbot-kit to power the chat with reviews UI.
@@ -116,5 +115,5 @@ Some useful links that might help you:
 NLP/insight_collection/outputs   Contains all the insights gathered from the processing to be used by flask backend to serve responses to users
 /frontend                    Contains the Web UI & charts Single Page Application built using React JS.
 server.py                    Contains python flask code responsible for routing and backend logic 
-requirements.txt             Contains names and versions of different python modules and packages used.  
+environment.yml            Contains names and versions of different python modules and packages used.  
 ```
