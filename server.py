@@ -5,7 +5,6 @@ import time
 import nbformat
 from flask import Flask, Response, jsonify, request
 import json
-from kaggle.api.kaggle_api_extended import KaggleApi
 from flask_cors import CORS
 from queue import Queue
 import asyncio
@@ -13,11 +12,18 @@ from NLP.data_collection.review_api import get_response_from_endpoint
 from NLP.insight_collection.filter_mechanism import get_relevant_reviews
 from NLP.insight_collection.rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
 from NLP.insight_collection.aspect_analysis import get_top_aspect_based_reviews
-kaggle_api = KaggleApi()
+
+
+# Flags
+KAGGLE_INSTALLED = True
+
 try:
+    from kaggle.api.kaggle_api_extended import KaggleApi
+    kaggle_api = KaggleApi()
     kaggle_api.authenticate()
-except Exception as e:
-    print(e)
+except OSError:
+    print("Disabling custom chatbot as kaggle.json is not present")
+    KAGGLE_INSTALLED = False
 
 
 def read_insights(filename):
@@ -138,6 +144,10 @@ def get_similar_docs():
 
 @app.route('/rag/query', methods=["POST"])
 def query_rag_gemma():
+
+    if not KAGGLE_INSTALLED:
+        return jsonify({'message': 'Kaggle not installed on backend machine'}), 500
+    
     resp = Response()
     request_data = request.get_json()
     query = request_data["query"]
@@ -154,6 +164,10 @@ def query_rag_gemma():
 
 @app.route('/rag/get-results')
 def get_rag_prompt_results():
+
+    if not KAGGLE_INSTALLED:
+        return jsonify({'message': 'Kaggle not installed on backend machine'}), 500
+
     if (queue.qsize() == 0):
         return jsonify({"message": "No results Available"})
     resp = Response()

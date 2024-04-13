@@ -15,6 +15,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       const loading = createChatBotMessage(<Loader />)
       setState((prev) => ({ ...prev, messages: [...prev.messages, loading], }))
     })
+    .catch((err)=>{
+      const errMsg = createChatBotMessage(err['response']['data']['message'])
+      setState((prev) => ({ ...prev, messages: [...prev.messages, errMsg], }))
+    })
 
     const polling = setInterval(()=>{
       axios.get(BACKEND_URL+'/rag/get-results')
@@ -36,6 +40,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
           clearInterval(polling)
         }
+      })
+      .catch((err)=>{
+        clearInterval(polling)
       })
     }, 1000)
 

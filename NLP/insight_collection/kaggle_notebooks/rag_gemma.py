@@ -349,7 +349,7 @@ chain = (
 
 # In[30]:
 
-query='what is the general sentiment of reviews on G2'
+query='hello'
 query_res=chain.invoke(query).replace('\n','')
 print(f"StartResults {query_res} EndResults")
 
