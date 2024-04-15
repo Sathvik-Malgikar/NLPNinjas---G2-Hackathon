@@ -25,7 +25,7 @@ const Search = () => {
   
   const aspects = ["Value for money","Performance","Scalability","Interoperability","Accessibility","Reliablity","Availability","Security","Compliance","Easy setup"]
 
-  const [filterArray, setFilterArray] = useState([true, true, true, true, true, true, true, true, true, true])
+  const [filterArray, setFilterArray] = useState([false, false, false, false, false, false, false, false, false, false])
 
   const getFormattedRegionwiseData = (data)=>{
     let formattedData = [];
@@ -53,6 +53,7 @@ const Search = () => {
       if (params.length > 0) {
           params = params.slice(0, -1);
       }
+      console.log(paramList, params)
       return params;
   }
 
@@ -137,20 +138,26 @@ const Search = () => {
     axios.get(BACKEND_URL+'/filter-reviews?'+buildBooleanParams(filterArray))
     .then((res)=>{
       let temp = []
+      const uniqueSet = new Set();
 
       Object.keys(res['data']).map((e)=>{
         if (e !== "null"){
-          res['data'][e].map(review=>{
-            axios.get(BACKEND_URL+`/review-by-id?id=${review['id']}`)
-            .then((resp)=>{
-              setFilteredReviews((prev)=>{return [...prev, resp['data']['data']]})
-              // temp.push(resp['data']['data'])
-              // console.log(resp['data']['data'])
-            })
+          res['data'].map(review=>{
+            temp.push(review)
+              // setFilteredReviews((prev)=>[...prev, review])
           })
         }
       })
-      setFilteredReviews(temp)
+
+      const uniqueList = temp.filter(obj => {
+        if (!uniqueSet.has(obj)) {
+          uniqueSet.add(obj);
+          return true;
+        }
+        return false;
+      });
+
+      setFilteredReviews(uniqueList)
 
       // console.log(filteredReviews)
     })

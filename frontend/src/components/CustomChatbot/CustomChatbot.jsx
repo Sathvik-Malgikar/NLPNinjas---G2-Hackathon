@@ -1,5 +1,5 @@
 import React from 'react'
-import config from './config'
+import config from './config.jsx'
 import ActionProvider from './ActionProvider'
 import MessageParser from './MessageParser'
 import Chatbot from 'react-chatbot-kit'
