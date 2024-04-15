@@ -1,3 +1,4 @@
+import tempfile
 import pickle
 import re
 import threading
@@ -8,11 +9,12 @@ import json
 from flask_cors import CORS
 from queue import Queue
 import asyncio
+import pandas as pd
 from NLP.data_collection.review_api import get_response_from_endpoint
 from NLP.insight_collection.filter_mechanism import get_relevant_reviews
-from NLP.insight_collection.rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
+from NLP.insight_collection.rag import init_sentence_transformer_with_db, get_embedding_function, retrieve_similar_docs, retrieve_similar_docs_page_content, extract_fields_from_review
 from NLP.insight_collection.aspect_analysis import get_top_aspect_based_reviews
-
+from langchain_community.vectorstores import Chroma
 
 # Flags
 KAGGLE_INSTALLED = True
@@ -92,6 +94,7 @@ def get_votes_data():
     resp.data = json.dumps(json_data)
     return resp
 
+
 @app.route('/keyword-inferences')
 def get_keyword_inferences():
     resp = Response()
@@ -147,12 +150,13 @@ def query_rag_gemma():
 
     if not KAGGLE_INSTALLED:
         return jsonify({'message': 'Kaggle not installed on backend machine'}), 500
-    
+
     resp = Response()
     request_data = request.get_json()
     query = request_data["query"]
     new_content = f"""query='{query}'"""
-    replace_line("./NLP/insight_collection/kaggle_notebooks/rag_gemma.py", 351, new_content)
+    replace_line(
+        "./NLP/insight_collection/kaggle_notebooks/rag_gemma.py", 351, new_content)
     thread = threading.Thread(target=execute_kaggle_notebook, args=(queue,))
     thread.start()
     return jsonify({'message': 'Data processing started'}), 202
@@ -196,19 +200,28 @@ def get_aspect_filtered_reviews():
 
     filtered_reviews = get_top_aspect_based_reviews(
         aspect_file["review_data"], aspects)
-
+    reviews = pd.read_csv("./NLP/insight_collection/outputs/reviews.csv")
+    filtered_reviews_new = reviews["attributes"].apply(
+        extract_fields_from_review).tolist()
+    ids = []
+    for key, value in filtered_reviews.items():
+        ids.extend([x["id"] for x in value])
+    # print(type(filtered_reviews_new[0]))
+    filtered_reviews_new = list(
+        filter(lambda x: x["id"] in ids, filtered_reviews_new))
     resp = Response()
-    resp.data = json.dumps(filtered_reviews)
+    resp.data = json.dumps(filtered_reviews_new)
     return resp
 
 
 @app.route('/review-by-id', methods=["GET"])
 def get_review_by_id():
     rev_id = request.args.get("id")
-    
+
     if not rev_id:
         return 'Error: Missing query parameters', 400
     return get_response_from_endpoint("https://data.g2.com/api/v1/survey-responses/" + rev_id)
+
 
 @app.route('/filter-reviews-2', methods=['GET'])
 def get_data():
@@ -239,4 +252,17 @@ if __name__ == '__main__':
     # run() method of Flask class runs the application
     # on the local development server.
     # chroma_db = init_sentence_transformer_with_db()
+
+    # Persist collection to temporary directory
+    # chroma_db.persist()
+
+    # Later, to load the collection from disk
+    chroma_db = Chroma(persist_directory="./NLP/insight_collection/outputs/chroma_db",
+                       embedding_function=get_embedding_function())
+    # documents = chroma_db.get_all()
+
+    # for document in documents:
+    #     # Serialize each document with pickle
+    #     with open(f"./chroma_db/document_{document['id']}.pkl", "wb") as f:
+    #         pickle.dump(document, f)
     app.run()

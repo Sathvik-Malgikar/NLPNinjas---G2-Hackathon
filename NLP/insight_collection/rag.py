@@ -180,9 +180,16 @@ def init_sentence_transformer_with_db():
     text_splitter = CharacterTextSplitter(chunk_size=2000, chunk_overlap=0)
     documents = text_splitter.create_documents(
         content, metadatas=metadata)
-    db = Chroma.from_documents(documents, embedding_function)
+    db = Chroma.from_documents(
+        documents, embedding_function, persist_directory="./NLP/insight_collection/outputs/chroma_db")
     return db
     # print(docs[0].page_content)
+
+
+def get_embedding_function():
+    embedding_function = SentenceTransformerEmbeddings(
+        model_name="all-MiniLM-L6-v2")
+    return embedding_function
 
 
 def retrieve_similar_docs(query, db):
@@ -194,4 +201,18 @@ def retrieve_similar_docs_page_content(docs):
     return [x.page_content for x in docs]
 
 
+def extract_fields_from_review(json_str):
+    data = eval(json_str)
+
+    fields_dict = {
+        'id': data.get('slug').split('-')[-1],
+        'product_name': data.get('product_name', ''),
+        'title': data.get('title', ''),
+        'love_text': data.get('comment_answers', {}).get('love', {}).get('value', ''),
+        'hate_text': data.get('comment_answers', {}).get('hate', {}).get('value', ''),
+        'recommendations_text': data.get('comment_answers', {}).get('recommendations', {}).get('value', ''),
+        'benefits_text': data.get('comment_answers', {}).get('benefits', {}).get('value', '')
+    }
+
+    return fields_dict
 # print(get_similar_docs("is G2 useful?", init_sentence_transformer_with_db()))
