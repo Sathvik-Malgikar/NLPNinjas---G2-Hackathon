@@ -4,3 +4,18 @@
     width: 100%;
     /* min-width: 400px; */
 }
+
+.react-chatbot-kit-chat-bot-message
+{
+    background-color: #ff492c;
+    margin-left: 5%;
+    /* transform: translate(-40%, 0) */
+}
+
+.react-chatbot-kit-chat-bot-message-arrow {
+    border-right: 8px solid #ff492c;
+}
+
+.react-chatbot-kit-chat-btn-send {
+    background-color: #ff492c;
+}

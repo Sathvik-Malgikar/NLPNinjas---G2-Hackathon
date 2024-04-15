@@ -28,7 +28,6 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         }
         else {
           const ragResp = res['data']['results']
-          console.log(ragResp)
           const processedRagResp = ragResp.split('Answer:')[1];
           const botMessage = createChatBotMessage(processedRagResp)
 

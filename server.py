@@ -238,5 +238,5 @@ def get_data():
 if __name__ == '__main__':
     # run() method of Flask class runs the application
     # on the local development server.
-    chroma_db = init_sentence_transformer_with_db()
+    # chroma_db = init_sentence_transformer_with_db()
     app.run()

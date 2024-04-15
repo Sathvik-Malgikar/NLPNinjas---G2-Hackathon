@@ -120,7 +120,7 @@ const Search = () => {
 
   useEffect(()=>{
     // console.log(BACKEND_URL+'?'+buildBooleanParams(filterArray))
-    // console.log(filterArray)
+    console.log(filterArray)
 
     let invCount = 0;
     filterArray.map((e)=>{
@@ -128,6 +128,7 @@ const Search = () => {
         invCount += 1;
       }
     })
+    console.log(invCount)
 
     if (invCount == 10){
       setFilteredReviews([]);
@@ -136,7 +137,6 @@ const Search = () => {
 
     axios.get(BACKEND_URL+'/filter-reviews?'+buildBooleanParams(filterArray))
     .then((res)=>{
-      let temp = []
 
       Object.keys(res['data']).map((e)=>{
         if (e !== "null"){
@@ -144,13 +144,10 @@ const Search = () => {
             axios.get(BACKEND_URL+`/review-by-id?id=${review['id']}`)
             .then((resp)=>{
               setFilteredReviews((prev)=>{return [...prev, resp['data']['data']]})
-              // temp.push(resp['data']['data'])
-              // console.log(resp['data']['data'])
             })
           })
         }
       })
-      setFilteredReviews(temp)
 
       // console.log(filteredReviews)
     })

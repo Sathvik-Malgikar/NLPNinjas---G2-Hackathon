@@ -4,7 +4,6 @@ import { Rating } from 'react-simple-star-rating'
 const ReviewBox = ({review}) => {
 
   const {title, star_rating, user_name} = review['attributes']
-  console.log(review)
 
   return (
     <div className='flex flex-col w-full m-4 p-8 border-black border-[1px] rounded-lg'>
