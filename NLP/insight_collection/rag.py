@@ -208,6 +208,7 @@ def extract_fields_from_review(json_str):
         'id': data.get('slug').split('-')[-1],
         'product_name': data.get('product_name', ''),
         'title': data.get('title', ''),
+        'star_rating': data.get('star_rating', ''),
         'love_text': data.get('comment_answers', {}).get('love', {}).get('value', ''),
         'hate_text': data.get('comment_answers', {}).get('hate', {}).get('value', ''),
         'recommendations_text': data.get('comment_answers', {}).get('recommendations', {}).get('value', ''),
