@@ -180,9 +180,16 @@ def init_sentence_transformer_with_db():
     text_splitter = CharacterTextSplitter(chunk_size=2000, chunk_overlap=0)
     documents = text_splitter.create_documents(
         content, metadatas=metadata)
-    db = Chroma.from_documents(documents, embedding_function)
+    db = Chroma.from_documents(
+        documents, embedding_function, persist_directory="./NLP/insight_collection/outputs/chroma_db")
     return db
     # print(docs[0].page_content)
+
+
+def get_embedding_function():
+    embedding_function = SentenceTransformerEmbeddings(
+        model_name="all-MiniLM-L6-v2")
+    return embedding_function
 
 
 def retrieve_similar_docs(query, db):

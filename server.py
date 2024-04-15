@@ -1,3 +1,4 @@
+import tempfile
 import pickle
 import re
 import threading
@@ -10,10 +11,11 @@ from flask_cors import CORS
 from queue import Queue
 import asyncio
 import pandas as pd
+from langchain_community.vectorstores import Chroma
 from NLP.insight_collection.filter_mechanism import get_relevant_reviews
 from NLP.insight_collection.rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
 from NLP.insight_collection.aspect_analysis import get_top_aspect_based_reviews
-from NLP.insight_collection.rag import extract_fields_from_review
+from NLP.insight_collection.rag import extract_fields_from_review, get_embedding_function
 kaggle_api = KaggleApi()
 try:
     kaggle_api.authenticate()
@@ -227,5 +229,18 @@ def get_data():
 if __name__ == '__main__':
     # run() method of Flask class runs the application
     # on the local development server.
-    chroma_db = init_sentence_transformer_with_db()
+    # chroma_db = init_sentence_transformer_with_db()
+
+    # Persist collection to temporary directory
+    # chroma_db.persist()
+
+    # Later, to load the collection from disk
+    chroma_db = Chroma(persist_directory="./NLP/insight_collection/outputs/chroma_db",
+                       embedding_function=get_embedding_function())
+    # documents = chroma_db.get_all()
+
+    # for document in documents:
+    #     # Serialize each document with pickle
+    #     with open(f"./chroma_db/document_{document['id']}.pkl", "wb") as f:
+    #         pickle.dump(document, f)
     app.run()
