@@ -9,11 +9,12 @@ import json
 from flask_cors import CORS
 from queue import Queue
 import asyncio
+import pandas as pd
 from NLP.data_collection.review_api import get_response_from_endpoint
 from NLP.insight_collection.filter_mechanism import get_relevant_reviews
-from NLP.insight_collection.rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
+from NLP.insight_collection.rag import init_sentence_transformer_with_db, get_embedding_function, retrieve_similar_docs, retrieve_similar_docs_page_content, extract_fields_from_review
 from NLP.insight_collection.aspect_analysis import get_top_aspect_based_reviews
-
+from langchain_community.vectorstores import Chroma
 
 # Flags
 KAGGLE_INSTALLED = True
