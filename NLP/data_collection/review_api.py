@@ -12,23 +12,29 @@ def write_json_to_file(data, file_path):
         json.dump(data, file, indent=4)
 
 def get_response_from_endpoint(url, headers=None):
+    if headers ==None:
+        headers = {
+    "Authorization": f"Token token={API_KEY}",
+    "Content Type": "application/vnd.api+json"
+}
+
     try:
         response = requests.get(url, headers=headers)
         # Check if the request was successful (status code 200)
         if response.status_code == 200:
             return response.json()  # Return the JSON response
         else:
-            return None  # Return None if request was not successful
+            return None, 400  # Return None if request was not successful
     except requests.exceptions.RequestException as e:
         print("Error:", e)
-        return None
+        return None, 400
 
 # Example usage:
 # has to be a GET request
 
 import os
 
-API_KEY = os.environ.get("GOOGLE_API_KEY")
+API_KEY = "1da6d9512ad00fc394bd04234bc7358dc9b85d96fa0c56281f710dc9abcef7e5"
 
 custom_headers = {
     "Authorization": f"Token token={API_KEY}",
@@ -53,33 +59,34 @@ def process_one_batch(response):
         
     write_json_to_file(results,"results.json")
 
-import time
+if __name__ =="__main__":
+    import time
 
-url = "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=1&page%5Bsize%5D=10" # param id can be added optionally
+    url = "https://data.g2.com/api/v1/survey-responses?page%5Bnumber%5D=1&page%5Bsize%5D=10" # param id can be added optionally
 
-empty_results = {
-    "average_star_rating": 0,
-    "num_reviews": 0
-}
+    empty_results = {
+        "average_star_rating": 0,
+        "num_reviews": 0
+    }
 
-write_json_to_file(empty_results,"results.json")
+    write_json_to_file(empty_results,"results.json")
 
-while True:
-    t1 = time.time()
-    response = get_response_from_endpoint(url, headers=custom_headers)
-    if response:
-        write_json_to_file(response,"response.json")
-        process_one_batch(response)
-        t2 = time.time()
-        print(f"Processed one batch in {t2-t1} seconds")
-        if "next" in response["links"]:
+    while True:
+        t1 = time.time()
+        response = get_response_from_endpoint(url, headers=custom_headers)
+        if response:
+            write_json_to_file(response,"response.json")
+            process_one_batch(response)
+            t2 = time.time()
+            print(f"Processed one batch in {t2-t1} seconds")
+            if "next" in response["links"]:
+                
+                url = response["links"]["next"]
+            else:
+                break
             
-            url = response["links"]["next"]
         else:
-            break
-        
-    else:
-        print("Failed to get response from the endpoint.")
-        
-print("Processing reviews completed, reached end of linked list")
+            print("Failed to get response from the endpoint.")
+            
+    print("Processing reviews completed, reached end of linked list")
 

@@ -1,5 +1,6 @@
-/* .react-chatbot-kit-chat-container,
+.react-chatbot-kit-chat-container,
 .react-chatbot-kit-chat-inner-container
 {
     width: 100%;
-} */
+    /* min-width: 400px; */
+}

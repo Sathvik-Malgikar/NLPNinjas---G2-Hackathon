@@ -12,9 +12,8 @@ Unbiased customer reviews are gathered from the above mentioned API endpoints an
 ## Implementation
 The pipeline for processing reviews is built with python using NLP modules spacY, bert, gemini , nltk & yake.
 Additional modules used: pandas, textblob, gensim
-Checkout requirements.txt for more info!
 
-The frontend is a single page application built with React JS.
+The frontend is a single page application built with Vite + React JS.
 We have used react-svg-worldmap to plot the countrywise metrics, and react-chatbot-kit to power the chat with reviews UI.
 
 ![Architecture / Workflow](Arch.png?raw=true "Architecture / Workflow")
@@ -23,14 +22,38 @@ We have used react-svg-worldmap to plot the countrywise metrics, and react-chatb
 * PC With Conda installed.
 * Network connection
 * Node JS 21.2.0 (for frontend)
+* Working kaggle api token
+
+## Generating kaggle API token
+* Visit kaggle.com and create an account
+* In account settings, scroll down to API -> Create New Token
+* Place the downloaded kaggle.json in C:/Users/{your_username}/.kaggle/
+* Proceed with Cloning
 
 
-## Commands.
+## Commands (How to run).
+
+To clone this repository:
+```
+git clone https://github.com/Sathvik-Malgikar/NLPNinjas---G2-Hackathon.git
+cd NLPNinjas---G2-Hackathon
+```
+
+To setup environment with all required dependencies for processing reviews:
+```
+conda env create -f environment.yml
+conda activate nlpninjas
+```
+This will make a new conda environement called 'nlpninjas' and make it active.
+
+
 
 Use this command to serve a local flask development server for serving generated info to at API endpoints:
 ```
 python server.py
 ```
+Wait for it to display "Running on http://127.0.0.1:5000/"
+
 Now, at http://127.0.0.1:5000/ the following endpoints should be accessible:
 
 * /aggregates/average_secondary_metrics
@@ -44,31 +67,23 @@ Now, at http://127.0.0.1:5000/ the following endpoints should be accessible:
 * /rag/get-results
 * /filter-reviews
 
+Open a new terminal from root directory to serve a local frontend.
 Use these commands to quickly install all dependencies for a local running version of website.
 ```
 cd frontend
-npm install
+npm i
 ```
 The /frontend can be run as development server using 
 ```
-npm start
+npm run dev
 ```
+The frontend can be accessed at http://localhost:5173/
 
-To setup environment with all required dependencies for processing reviews:
-```
-conda create -n nlpninjas python=3.10.4 --file requirements.txt
-conda activate nlpninjas
-```
-This will make a new conda environement called 'nlpninjas' and make it active.
+Search G2 on Homepage's Searchbox to get started!
 
-To clone this repository:
-```
-git clone https://github.com/Sathvik-Malgikar/NLPNinjas---G2-Hackathon
-cd NLPNinjas---G2-Hackathon
-```
-
-
-Use the following command to initiate review processing:
+[Optional]
+Open a new terminal to run NLP locally.
+Run the following commands to re generate processed reviews and aggregate metrics. This will run NLP pipeline locally and takes a long time:
 ```
 python process_reviews.py
 ```
@@ -100,5 +115,5 @@ Some useful links that might help you:
 NLP/insight_collection/outputs   Contains all the insights gathered from the processing to be used by flask backend to serve responses to users
 /frontend                    Contains the Web UI & charts Single Page Application built using React JS.
 server.py                    Contains python flask code responsible for routing and backend logic 
-requirements.txt             Contains names and versions of different python modules and packages used.  
+environment.yml            Contains names and versions of different python modules and packages used.  
 ```

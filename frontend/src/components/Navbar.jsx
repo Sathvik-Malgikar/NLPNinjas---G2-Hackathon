@@ -1,13 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import g2Logo from '../assets/g2-logo.png'
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useLocation } from 'react-router-dom'
 
 const Navbar = () => {
 
   const navigate = useNavigate();
+  const location = useLocation()['pathname'];
+  // const [navbarTransp, setNavbarTransp] = useState(true)
+
+
+  useEffect(()=>{
+    if (location == '/search'){
+      let nav = document.getElementById('nav')
+      nav.classList.add('bg-white')
+    }
+    else{
+      let nav = document.getElementById('nav')
+      nav.classList.remove('bg-white')
+    }
+  }, [location])
 
   return (
-    <nav className='w-full fixed top-0 px-4 grid grid-cols-10 place-items-center z-50'>
+    <nav id='nav' className='w-full fixed top-0 px-4 grid grid-cols-10 place-items-center z-50'>
 
         <img 
           src={g2Logo} 

@@ -6,21 +6,25 @@ import time
 import nbformat
 from flask import Flask, Response, jsonify, request
 import json
-from kaggle.api.kaggle_api_extended import KaggleApi
 from flask_cors import CORS
 from queue import Queue
 import asyncio
-import pandas as pd
-from langchain_community.vectorstores import Chroma
+from NLP.data_collection.review_api import get_response_from_endpoint
 from NLP.insight_collection.filter_mechanism import get_relevant_reviews
 from NLP.insight_collection.rag import init_sentence_transformer_with_db, retrieve_similar_docs, retrieve_similar_docs_page_content
 from NLP.insight_collection.aspect_analysis import get_top_aspect_based_reviews
-from NLP.insight_collection.rag import extract_fields_from_review, get_embedding_function
-kaggle_api = KaggleApi()
+
+
+# Flags
+KAGGLE_INSTALLED = True
+
 try:
+    from kaggle.api.kaggle_api_extended import KaggleApi
+    kaggle_api = KaggleApi()
     kaggle_api.authenticate()
-except Exception as e:
-    print(e)
+except OSError:
+    print("Disabling custom chatbot as kaggle.json is not present")
+    KAGGLE_INSTALLED = False
 
 
 def read_insights(filename):
@@ -111,7 +115,7 @@ def get_regionwise_rating():
 @app.route('/aggregates/aspect-keywords')
 def get_aspect_keywords():
     resp = Response()
-    json_data = read_insights("extracted_features_spacy.json")
+    json_data = read_insights("/extracted_features_spacy.json")
     resp.headers["Content-Type"] = "application/json"
     resp.data = json.dumps(json_data)
     return resp
@@ -120,7 +124,7 @@ def get_aspect_keywords():
 @app.route('/aggregates/polarity-keywords')
 def get_polarity_keywords():
     resp = Response()
-    json_data = read_insights("extracted_features_textblob_polarity.json")
+    json_data = read_insights("/extracted_features_textblob_polarity.json")
     resp.headers["Content-Type"] = "application/json"
     resp.data = json.dumps(json_data)
     return resp
@@ -142,6 +146,10 @@ def get_similar_docs():
 
 @app.route('/rag/query', methods=["POST"])
 def query_rag_gemma():
+
+    if not KAGGLE_INSTALLED:
+        return jsonify({'message': 'Kaggle not installed on backend machine'}), 500
+
     resp = Response()
     request_data = request.get_json()
     query = request_data["query"]
@@ -159,6 +167,10 @@ def query_rag_gemma():
 
 @app.route('/rag/get-results')
 def get_rag_prompt_results():
+
+    if not KAGGLE_INSTALLED:
+        return jsonify({'message': 'Kaggle not installed on backend machine'}), 500
+
     if (queue.qsize() == 0):
         return jsonify({"message": "No results Available"})
     resp = Response()
@@ -199,6 +211,15 @@ def get_aspect_filtered_reviews():
     resp = Response()
     resp.data = json.dumps(filtered_reviews_new)
     return resp
+
+
+@app.route('/review-by-id', methods=["GET"])
+def get_review_by_id():
+    rev_id = request.args.get("id")
+
+    if not rev_id:
+        return 'Error: Missing query parameters', 400
+    return get_response_from_endpoint("https://data.g2.com/api/v1/survey-responses/" + rev_id)
 
 
 @app.route('/filter-reviews-2', methods=['GET'])

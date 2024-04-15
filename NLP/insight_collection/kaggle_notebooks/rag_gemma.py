@@ -21,7 +21,27 @@
 # pip install -q -U elasticsearch langchain transformers huggingface_hub ray
 
 
-
+import json
+from huggingface_hub import notebook_login, login
+from torch.nn.parallel import DataParallel
+from transformers import AutoTokenizer, pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from huggingface_hub import login
+from langchain.schema.runnable import RunnablePassthrough
+from langchain.schema.output_parser import StrOutputParser
+from langchain.prompts import ChatPromptTemplate
+from langchain.chains import RetrievalQA
+from langchain import HuggingFacePipeline
+from langchain.vectorstores import ElasticsearchStore
+from langchain.text_splitter import CharacterTextSplitter
+from elasticsearch import Elasticsearch, helpers
+import gc
+import ray
+import torch
+import requests
+from urllib.request import urlopen
+from getpass import getpass
+import os
 import subprocess
 
 # Define the pip command
@@ -46,27 +66,6 @@ else:
     print(stderr.decode())
 # ## Import packages
 
-import os
-from getpass import getpass
-from urllib.request import urlopen
-import requests
-import torch
-import ray
-import gc
-from elasticsearch import Elasticsearch, helpers
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.vectorstores import ElasticsearchStore
-from langchain import HuggingFacePipeline
-from langchain.chains import RetrievalQA
-from langchain.prompts import ChatPromptTemplate
-from langchain.schema.output_parser import StrOutputParser
-from langchain.schema.runnable import RunnablePassthrough
-from huggingface_hub import login
-from transformers import AutoTokenizer, AutoModelForCausalLM
-from transformers import AutoTokenizer, pipeline
-from torch.nn.parallel import DataParallel
-from huggingface_hub import notebook_login, login
-import json
 # In[27]:
 
 
@@ -91,11 +90,11 @@ elastic_index_name = "gemma-rag"
 # In[10]:
 
 
-#url = "https://raw.githubusercontent.com/elastic/elasticsearch-labs/main/datasets/workplace-documents.json"
+# url = "https://raw.githubusercontent.com/elastic/elasticsearch-labs/main/datasets/workplace-documents.json"
 
-#response = urlopen(url)
+# response = urlopen(url)
 
-#workplace_docs = json.loads(response.read())
+# workplace_docs = json.loads(response.read())
 
 
 # In[11]:
@@ -349,8 +348,8 @@ chain = (
 
 # In[30]:
 
-query='Explain more about G2'
-query_res=chain.invoke(query).replace('\n','')
+query = 'hello'
+query_res = chain.invoke(query).replace('\n', '')
 print(f"StartResults {query_res} EndResults")
 
 
