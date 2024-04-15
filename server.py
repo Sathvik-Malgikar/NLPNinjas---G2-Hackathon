@@ -207,10 +207,10 @@ def get_aspect_filtered_reviews():
     for key, value in filtered_reviews.items():
         ids.extend([x["id"] for x in value])
     # print(type(filtered_reviews_new[0]))
-    filtered_reviews_new = list(
-        filter(lambda x: x["id"] in ids, filtered_reviews_new))
+    # filtered_reviews_new = list(
+    #     filter(lambda x: x["id"] in ids, filtered_reviews_new))
     resp = Response()
-    resp.data = json.dumps(filtered_reviews_new)
+    resp.data = json.dumps(filtered_reviews)
     return resp
 
 

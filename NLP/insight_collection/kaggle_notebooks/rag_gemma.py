@@ -19,30 +19,8 @@
 
 
 # pip install -q -U elasticsearch langchain transformers huggingface_hub ray
-
-
-import json
-from huggingface_hub import notebook_login, login
-from torch.nn.parallel import DataParallel
-from transformers import AutoTokenizer, pipeline
-from transformers import AutoTokenizer, AutoModelForCausalLM
-from huggingface_hub import login
-from langchain.schema.runnable import RunnablePassthrough
-from langchain.schema.output_parser import StrOutputParser
-from langchain.prompts import ChatPromptTemplate
-from langchain.chains import RetrievalQA
-from langchain import HuggingFacePipeline
-from langchain.vectorstores import ElasticsearchStore
-from langchain.text_splitter import CharacterTextSplitter
-from elasticsearch import Elasticsearch, helpers
-import gc
-import ray
-import torch
-import requests
-from urllib.request import urlopen
-from getpass import getpass
-import os
 import subprocess
+
 
 # Define the pip command
 pip_command = ['pip', 'install', '-q', '-U', 'elasticsearch',
@@ -65,6 +43,30 @@ else:
     print("STDERR:")
     print(stderr.decode())
 # ## Import packages
+
+import json
+from huggingface_hub import notebook_login, login
+from torch.nn.parallel import DataParallel
+from transformers import AutoTokenizer, pipeline
+from transformers import AutoTokenizer, AutoModelForCausalLM
+from huggingface_hub import login
+from langchain.schema.runnable import RunnablePassthrough
+from langchain.schema.output_parser import StrOutputParser
+from langchain.prompts import ChatPromptTemplate
+from langchain.chains import RetrievalQA
+from langchain import HuggingFacePipeline
+from langchain.vectorstores import ElasticsearchStore
+from langchain.text_splitter import CharacterTextSplitter
+from elasticsearch import Elasticsearch, helpers
+import gc
+import ray
+import torch
+import requests
+from urllib.request import urlopen
+from getpass import getpass
+import os
+
+
 
 # In[27]:
 
@@ -343,12 +345,11 @@ chain = (
     | StrOutputParser()
 )
 
-
 # ## Ask question
 
 # In[30]:
 
-query = 'hello'
+query='tell me something about G2'
 query_res = chain.invoke(query).replace('\n', '')
 print(f"StartResults {query_res} EndResults")
 
